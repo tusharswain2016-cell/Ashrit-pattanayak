@@ -100,131 +100,129 @@ nav{
 .ticker-dot{color:rgba(255,255,255,.45);}
 @keyframes ts{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 
-/* ══ HERO ══ */
+/* ══ HERO — FULL VIDEO BG ══ */
 #hero{
-  min-height:calc(100vh - 110px);
-  display:grid;
-  grid-template-columns:45% 55%;
   position:relative;
+  width:100%;
+  height:100vh;
+  min-height:580px;
   overflow:hidden;
+  display:flex;
+  align-items:flex-end;
 }
-.hero-video-col{
-  position:relative;
-  overflow:hidden;
-  background:var(--gr);
-  min-height:calc(100vh - 110px);
-}
-.hero-video-col::before{
-  content:'';position:absolute;
-  top:0;left:0;right:0;bottom:0;
-  background:
-    linear-gradient(to bottom, rgba(0,0,0,.45) 0%, transparent 30%),
-    linear-gradient(to top, rgba(0,0,0,.8) 0%, transparent 45%);
-  z-index:1;pointer-events:none;
-}
-.hero-video-col::after{
-  content:'';position:absolute;
-  top:0;right:-40px;
-  width:80px;height:100%;
-  background:var(--off);
-  transform:skewX(-4deg);
-  z-index:2;
-}
+
+/* video fills the full frame */
 .hero-video-bg{
   position:absolute;
-  top:0;left:0;
-  width:100%;height:100%;
+  inset:0;
+  width:100%;
+  height:100%;
   object-fit:cover;
   object-position:center top;
   display:block;
+  z-index:0;
 }
-.photo-name-tag{
-  position:absolute;bottom:2.5rem;left:2rem;right:4rem;z-index:3;
-}
-.pnt-line1{
-  background:var(--sf);
-  display:inline-block;
-  font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.2em;
-  color:#fff;padding:.3rem .8rem;margin-bottom:.4rem;
-}
-.pnt-name{
-  font-family:'Tiro Devanagari Hindi',serif;
-  font-size:clamp(1.6rem,3.5vw,2.6rem);
-  color:#fff;line-height:1.05;
-  text-shadow:0 2px 20px rgba(0,0,0,.5);
-}
-.hero-content-col{
-  background:var(--off);
-  display:flex;flex-direction:column;
-  justify-content:center;
-  padding:4rem 6% 4rem 8%;
-  position:relative;
-  overflow:hidden;
-}
-.hero-bg-text{
+
+/* layered gradient overlay: top fade + deep bottom fade for text legibility */
+.hero-overlay{
   position:absolute;
-  right:-1rem;top:50%;transform:translateY(-50%);
-  font-family:'Tiro Devanagari Hindi',serif;
-  font-size:clamp(6rem,12vw,10rem);
-  color:rgba(0,0,0,.03);
-  line-height:1;white-space:nowrap;
-  pointer-events:none;user-select:none;
-  letter-spacing:.05em;
+  inset:0;
+  z-index:1;
+  background:
+    linear-gradient(to bottom,
+      rgba(0,0,0,.45) 0%,
+      rgba(0,0,0,.1) 35%,
+      rgba(0,0,0,.15) 55%,
+      rgba(0,0,0,.75) 78%,
+      rgba(0,0,0,.92) 100%
+    );
 }
-.hero-content-col::before{
-  content:'';
-  position:absolute;left:0;top:0;bottom:0;
+
+/* saffron left-edge accent bar */
+.hero-edge{
+  position:absolute;
+  left:0;top:0;bottom:0;
   width:5px;
-  background:linear-gradient(to bottom, var(--sf) 0%, var(--gr) 50%, var(--sf) 100%);
+  background:linear-gradient(to bottom, var(--sf) 0%, rgba(255,107,0,0) 100%);
+  z-index:2;
 }
+
+/* all content sits above overlay */
+.hero-content{
+  position:relative;
+  z-index:3;
+  width:100%;
+  padding:0 8% 4.5rem;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:flex-end;
+  gap:3rem;
+}
+
+/* left: name + bio block */
+.hero-left{}
+
 .hero-eyebrow{
   display:flex;align-items:center;gap:.6rem;
-  margin-bottom:1.5rem;
+  margin-bottom:1rem;
 }
 .hero-eyebrow-dot{width:8px;height:8px;background:var(--sf);border-radius:50%;}
-.hero-eyebrow span{font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.2em;color:var(--sf);font-weight:700;}
+.hero-eyebrow span{
+  font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.2em;
+  color:rgba(255,255,255,.7);font-weight:700;
+}
+
 .hero-title{
   font-family:'Tiro Devanagari Hindi',serif;
-  font-size:clamp(1.8rem,4vw,3.5rem);
-  line-height:1.1;color:var(--ink);
-  margin-bottom:1.2rem;
+  font-size:clamp(2.4rem,6vw,5rem);
+  line-height:1.05;
+  color:#fff;
+  text-shadow:0 4px 40px rgba(0,0,0,.5);
+  margin-bottom:1rem;
 }
 .hero-title .shri{
-  display:block;font-size:.38em;
+  display:block;
+  font-size:.28em;
   font-family:'Outfit',sans-serif;font-weight:300;
-  color:var(--light);letter-spacing:.3em;text-transform:uppercase;
+  color:rgba(255,255,255,.55);
+  letter-spacing:.35em;text-transform:uppercase;
   margin-bottom:.2rem;
 }
-.hero-title .last{color:var(--sf);}
+.hero-title .last{color:var(--sf2);}
+
 .c-badge{
   display:flex;align-items:stretch;
-  border:2px solid var(--gr);
-  width:fit-content;margin-bottom:2rem;
+  border:2px solid rgba(255,255,255,.2);
+  width:fit-content;margin-bottom:1.6rem;
   overflow:hidden;
+  backdrop-filter:blur(4px);
 }
-.c-badge-l{background:var(--gr);color:#fff;font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.1em;padding:.5rem .9rem;display:flex;align-items:center;}
-.c-badge-r{background:transparent;color:var(--gr);font-family:'Outfit',sans-serif;font-size:.88rem;font-weight:700;padding:.5rem .9rem;display:flex;align-items:center;}
-.hero-desc{font-size:.93rem;line-height:1.9;color:var(--mid);max-width:420px;margin-bottom:2.5rem;}
-.hero-stats{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  border:2px solid var(--b2);
-  background:var(--white);
-  margin-bottom:2.5rem;
-  overflow:hidden;
+.c-badge-l{
+  background:var(--sf);color:#fff;
+  font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.1em;
+  padding:.5rem .9rem;display:flex;align-items:center;
 }
-.hstat{padding:1.2rem 1rem;text-align:center;border-right:1px solid var(--b2);}
-.hstat:last-child{border:none;}
-.hstat-n{font-family:'Tiro Devanagari Hindi',serif;font-size:1.8rem;color:var(--sf);line-height:1;display:block;}
-.hstat-l{font-family:'Space Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--light);display:block;margin-top:.2rem;}
+.c-badge-r{
+  background:rgba(255,255,255,.12);color:#fff;
+  font-family:'Outfit',sans-serif;font-size:.88rem;font-weight:700;
+  padding:.5rem .9rem;display:flex;align-items:center;
+}
+
+.hero-desc{
+  font-size:.9rem;line-height:1.85;
+  color:rgba(255,255,255,.65);
+  max-width:440px;margin-bottom:2rem;
+}
+
 .hero-btns{display:flex;gap:.8rem;flex-wrap:wrap;}
 .btn-dark{
-  background:var(--gr);color:#fff;
+  background:var(--white);color:var(--gr);
   font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.1em;
   padding:.85rem 2rem;text-decoration:none;font-weight:700;
-  border:2px solid var(--gr);
+  border:2px solid var(--white);
   transition:all .2s;display:inline-block;
 }
-.btn-dark:hover{background:transparent;color:var(--gr);}
+.btn-dark:hover{background:transparent;color:#fff;}
 .btn-saffron{
   background:var(--sf);color:#fff;
   font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.1em;
@@ -233,6 +231,57 @@ nav{
   transition:all .2s;display:inline-block;
 }
 .btn-saffron:hover{background:transparent;color:var(--sf);}
+
+/* right: stats panel */
+.hero-right{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:1.2rem;
+}
+
+.hero-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border:2px solid rgba(255,255,255,.18);
+  backdrop-filter:blur(8px);
+  background:rgba(0,0,0,.3);
+  overflow:hidden;
+  width:100%;
+  max-width:420px;
+}
+.hstat{padding:1.3rem 1rem;text-align:center;border-right:1px solid rgba(255,255,255,.1);}
+.hstat:last-child{border:none;}
+.hstat-n{font-family:'Tiro Devanagari Hindi',serif;font-size:1.7rem;color:var(--sf2);line-height:1;display:block;}
+.hstat-l{font-family:'Space Mono',monospace;font-size:.45rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);display:block;margin-top:.3rem;}
+
+/* scroll hint */
+.hero-scroll{
+  display:flex;flex-direction:column;align-items:center;gap:.3rem;
+  position:absolute;
+  bottom:2rem;left:50%;transform:translateX(-50%);
+  z-index:3;
+  animation:bob 2s ease-in-out infinite;
+}
+.hero-scroll span{
+  font-family:'Space Mono',monospace;font-size:.42rem;letter-spacing:.22em;
+  color:rgba(255,255,255,.35);
+}
+.scroll-arrow{width:20px;height:20px;border-right:2px solid rgba(255,255,255,.3);border-bottom:2px solid rgba(255,255,255,.3);transform:rotate(45deg);}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(6px);}}
+
+/* responsive hero */
+@media(max-width:900px){
+  .hero-content{grid-template-columns:1fr;gap:1.5rem;padding:0 6% 3.5rem;}
+  .hero-right{align-items:flex-start;}
+  .hero-stats{max-width:100%;}
+}
+@media(max-width:600px){
+  #hero{height:100svh;}
+  .hero-title{font-size:clamp(2rem,10vw,3rem);}
+  .hero-stats{grid-template-columns:1fr 1fr;}
+  .hstat:last-child{display:none;}
+  .hero-content{padding:0 5% 3rem;}
+}
 
 /* ══ SECTION BASE ══ */
 .section{padding:5rem 8%;}
@@ -592,12 +641,8 @@ footer{background:var(--ink);border-top:4px solid var(--sf);}
 .rv.vis{opacity:1;transform:translateY(0);}
 .d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}
 
-/* ══ RESPONSIVE ══ */
+/* ══ RESPONSIVE REST ══ */
 @media(max-width:1100px){
-  #hero{grid-template-columns:1fr;}
-  .hero-video-col{min-height:55vw;max-height:480px;}
-  .hero-video-col::after{display:none;}
-  .hero-content-col{padding:3rem 5%;}
   .about-layout{grid-template-columns:1fr;}
   .apc{position:static;max-width:280px;}
   .big-stats{grid-template-columns:repeat(2,1fr);}
@@ -632,10 +677,7 @@ footer{background:var(--ink);border-top:4px solid var(--sf);}
   .mob-sticky{display:flex;}
   footer{padding-bottom:66px;}
   .fg2{grid-template-columns:1fr;}
-  .hero-stats{grid-template-columns:1fr 1fr;}
-  .hstat:last-child{display:none;}
   .hl-cards{grid-template-columns:1fr;}
-  .hero-content-col{padding:2rem 5% 3rem;}
 }
 </style>
 </head>
@@ -702,42 +744,55 @@ footer{background:var(--ink);border-top:4px solid var(--sf);}
   </div></div>
 </div>
 
-<!-- HERO -->
+<!-- HERO — FULL VIDEO BACKGROUND -->
 <section id="hero">
-  <div class="hero-video-col">
-    <video class="hero-video-bg"
-      src="https://res.cloudinary.com/dxmdcoca3/video/upload/v1780655553/AQOWgyDNTAtg_qW0kMz9AnzUyWdioFMOr9fyRaSWahWYV8KdNCnDEUCc5mRGZolEWgVyKo0V3DEfPRt17nTEIdaWVTE-GoCYLbFwGE2D2xicxT5ceQr18M1Zx2hHRyK6iDFFq0FduclmE63QIPbWNDLCKr4fGA9uCZ0eZyA_koy3fj.mp4"
-      autoplay muted loop playsinline>
-    </video>
-    <div class="photo-name-tag">
-      <div class="pnt-line1">MLA &middot; PIPILI &middot; PURI</div>
-      <div class="pnt-name">Shri Ashrit<br>Pattanayak</div>
+  <!-- Full-bleed video -->
+  <video class="hero-video-bg"
+    src="https://res.cloudinary.com/dxmdcoca3/video/upload/v1780655553/AQOWgyDNTAtg_qW0kMz9AnzUyWdioFMOr9fyRaSWahWYV8KdNCnDEUCc5mRGZolEWgVyKo0V3DEfPRt17nTEIdaWVTE-GoCYLbFwGE2D2xicxT5ceQr18M1Zx2hHRyK6iDFFq0FduclmE63QIPbWNDLCKr4fGA9uCZ0eZyA_koy3fj.mp4"
+    autoplay muted loop playsinline>
+  </video>
+
+  <!-- Gradient overlay for legibility -->
+  <div class="hero-overlay"></div>
+
+  <!-- Left accent bar -->
+  <div class="hero-edge"></div>
+
+  <!-- Content: name left, stats right -->
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-dot"></div>
+        <span>Member of Legislative Assembly &mdash; Odisha</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="shri">Shri</span>
+        Ashrit<br><span class="last">Pattanayak</span>
+      </h1>
+      <div class="c-badge">
+        <div class="c-badge-l">MLA</div>
+        <div class="c-badge-r">Pipili Constituency &middot; Puri District</div>
+      </div>
+      <p class="hero-desc">A committed people's representative and grassroots leader, working tirelessly for the development, welfare, and future of every family across the Pipili constituency in Puri district, Odisha.</p>
+      <div class="hero-btns">
+        <a href="#journey" class="btn-dark">His Journey &rarr;</a>
+        <a href="#contact" class="btn-saffron">Get in Touch</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-stats">
+        <div class="hstat"><span class="hstat-n">MLA</span><span class="hstat-l">Elected Rep.</span></div>
+        <div class="hstat"><span class="hstat-n">Pipili</span><span class="hstat-l">Constituency</span></div>
+        <div class="hstat"><span class="hstat-n">Puri</span><span class="hstat-l">District</span></div>
+      </div>
     </div>
   </div>
-  <div class="hero-content-col">
-    <div class="hero-bg-text">PIPILI</div>
-    <div class="hero-eyebrow">
-      <div class="hero-eyebrow-dot"></div>
-      <span>Member of Legislative Assembly &mdash; Odisha</span>
-    </div>
-    <h1 class="hero-title">
-      <span class="shri">Shri</span>
-      Ashrit<br><span class="last">Pattanayak</span>
-    </h1>
-    <div class="c-badge">
-      <div class="c-badge-l">MLA</div>
-      <div class="c-badge-r">Pipili Constituency &middot; Puri District</div>
-    </div>
-    <p class="hero-desc">A committed people's representative and grassroots leader, working tirelessly for the development, welfare, and future of every family across the Pipili constituency in Puri district, Odisha.</p>
-    <div class="hero-stats">
-      <div class="hstat"><span class="hstat-n">MLA</span><span class="hstat-l">Elected Rep.</span></div>
-      <div class="hstat"><span class="hstat-n">Pipili</span><span class="hstat-l">Constituency</span></div>
-      <div class="hstat"><span class="hstat-n">Puri</span><span class="hstat-l">District</span></div>
-    </div>
-    <div class="hero-btns">
-      <a href="#journey" class="btn-dark">His Journey &rarr;</a>
-      <a href="#contact" class="btn-saffron">Get in Touch</a>
-    </div>
+
+  <!-- Scroll hint -->
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-arrow"></div>
   </div>
 </section>
 
@@ -778,7 +833,7 @@ footer{background:var(--ink);border-top:4px solid var(--sf);}
   </div>
 </section>
 
-<!-- GALLERY (after About) -->
+<!-- GALLERY -->
 <section id="gallery">
   <div class="s-eye rv"><span>Photo Gallery</span></div>
   <h2 class="s-title rv">Moments from <span class="hi">Pipili</span></h2>
