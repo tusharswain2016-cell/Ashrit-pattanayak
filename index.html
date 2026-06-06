@@ -100,7 +100,7 @@ nav{
 .ticker-dot{color:rgba(255,255,255,.45);}
 @keyframes ts{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
 
-/* ══ HERO — SPLIT: VIDEO LEFT / CONTENT RIGHT ══ */
+/* ══ HERO ══ */
 #hero{
   min-height:calc(100vh - 110px);
   display:grid;
@@ -108,8 +108,6 @@ nav{
   position:relative;
   overflow:hidden;
 }
-
-/* LEFT: video column */
 .hero-video-col{
   position:relative;
   overflow:hidden;
@@ -124,7 +122,6 @@ nav{
     linear-gradient(to top, rgba(0,0,0,.8) 0%, transparent 45%);
   z-index:1;pointer-events:none;
 }
-/* diagonal slash overlap onto right col */
 .hero-video-col::after{
   content:'';position:absolute;
   top:0;right:-40px;
@@ -141,7 +138,6 @@ nav{
   object-position:center top;
   display:block;
 }
-/* name tag at bottom of video col */
 .photo-name-tag{
   position:absolute;bottom:2.5rem;left:2rem;right:4rem;z-index:3;
 }
@@ -157,8 +153,6 @@ nav{
   color:#fff;line-height:1.05;
   text-shadow:0 2px 20px rgba(0,0,0,.5);
 }
-
-/* RIGHT: content column */
 .hero-content-col{
   background:var(--off);
   display:flex;flex-direction:column;
@@ -167,7 +161,6 @@ nav{
   position:relative;
   overflow:hidden;
 }
-/* big decorative text behind */
 .hero-bg-text{
   position:absolute;
   right:-1rem;top:50%;transform:translateY(-50%);
@@ -178,7 +171,6 @@ nav{
   pointer-events:none;user-select:none;
   letter-spacing:.05em;
 }
-/* saffron-charcoal vertical accent bar */
 .hero-content-col::before{
   content:'';
   position:absolute;left:0;top:0;bottom:0;
@@ -301,6 +293,93 @@ nav{
 .af:nth-last-child(-n+2){border-bottom:none;}
 .af-k{font-family:'Space Mono',monospace;font-size:.48rem;letter-spacing:.1em;color:var(--sf);margin-bottom:.2rem;}
 .af-v{font-size:.85rem;font-weight:700;color:var(--ink);}
+
+/* ══ GALLERY ══ */
+#gallery{background:var(--off);padding:5rem 8%;}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-auto-rows:220px;
+  gap:6px;
+  margin-top:2.5rem;
+}
+.gi:nth-child(1){grid-column:span 2;grid-row:span 2;}
+.gi:nth-child(5){grid-column:span 2;}
+.gi{
+  position:relative;overflow:hidden;
+  background:var(--gr);
+  cursor:pointer;
+}
+.gi img{
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center top;
+  display:block;
+  transition:transform .5s ease;
+}
+.gi:hover img{transform:scale(1.06);}
+.gi::after{
+  content:'';position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,.55) 0%, transparent 50%);
+  opacity:0;
+  transition:opacity .3s;
+}
+.gi:hover::after{opacity:1;}
+.gi::before{
+  content:'';position:absolute;
+  inset:0;
+  border:3px solid var(--sf);
+  opacity:0;
+  transition:opacity .3s;
+  z-index:2;
+  pointer-events:none;
+}
+.gi:hover::before{opacity:1;}
+.lb{
+  display:none;position:fixed;
+  inset:0;z-index:9999;
+  background:rgba(0,0,0,.92);
+  align-items:center;justify-content:center;
+}
+.lb.open{display:flex;}
+.lb-img{
+  max-width:90vw;max-height:88vh;
+  object-fit:contain;
+  border:3px solid var(--sf);
+}
+.lb-close{
+  position:absolute;top:1.5rem;right:2rem;
+  color:#fff;font-size:2rem;cursor:pointer;
+  background:none;border:none;line-height:1;
+  transition:color .2s;
+}
+.lb-close:hover{color:var(--sf);}
+.lb-nav{
+  position:absolute;top:50%;transform:translateY(-50%);
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+  color:#fff;font-size:1.4rem;width:48px;height:48px;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:background .2s;
+}
+.lb-nav:hover{background:var(--sf);}
+.lb-prev{left:1.5rem;}
+.lb-next{right:1.5rem;}
+.lb-counter{
+  position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);
+  font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.15em;
+  color:rgba(255,255,255,.5);
+}
+@media(max-width:900px){
+  .gallery-grid{grid-template-columns:repeat(3,1fr);grid-auto-rows:180px;}
+  .gi:nth-child(1){grid-column:span 2;grid-row:span 2;}
+  .gi:nth-child(5){grid-column:span 1;}
+}
+@media(max-width:600px){
+  .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;}
+  .gi:nth-child(1){grid-column:span 2;grid-row:span 1;}
+  .gi:nth-child(5){grid-column:span 2;}
+}
 
 /* ══ JOURNEY ══ */
 .journey-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;position:relative;margin-top:2rem;}
@@ -501,93 +580,6 @@ footer{background:var(--ink);border-top:4px solid var(--sf);}
 .ft-btm{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 8%;font-family:'Space Mono',monospace;font-size:.45rem;letter-spacing:.08em;color:rgba(255,255,255,.12);flex-wrap:wrap;gap:.5rem;}
 
 /* ══ MOB STICKY ══ */
-/* ══ GALLERY ══ */
-#gallery{background:var(--white);padding:5rem 8%;}
-.gallery-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  grid-auto-rows:220px;
-  gap:6px;
-  margin-top:2.5rem;
-}
-.gi:nth-child(1){grid-column:span 2;grid-row:span 2;}
-.gi:nth-child(5){grid-column:span 2;}
-.gi{
-  position:relative;overflow:hidden;
-  background:var(--gr);
-  cursor:pointer;
-}
-.gi img{
-  width:100%;height:100%;
-  object-fit:cover;
-  object-position:center top;
-  display:block;
-  transition:transform .5s ease;
-}
-.gi:hover img{transform:scale(1.06);}
-.gi::after{
-  content:'';position:absolute;
-  inset:0;
-  background:linear-gradient(to top, rgba(0,0,0,.55) 0%, transparent 50%);
-  opacity:0;
-  transition:opacity .3s;
-}
-.gi:hover::after{opacity:1;}
-.gi::before{
-  content:'';position:absolute;
-  inset:0;
-  border:3px solid var(--sf);
-  opacity:0;
-  transition:opacity .3s;
-  z-index:2;
-  pointer-events:none;
-}
-.gi:hover::before{opacity:1;}
-.lb{
-  display:none;position:fixed;
-  inset:0;z-index:9999;
-  background:rgba(0,0,0,.92);
-  align-items:center;justify-content:center;
-}
-.lb.open{display:flex;}
-.lb-img{
-  max-width:90vw;max-height:88vh;
-  object-fit:contain;
-  border:3px solid var(--sf);
-}
-.lb-close{
-  position:absolute;top:1.5rem;right:2rem;
-  color:#fff;font-size:2rem;cursor:pointer;
-  background:none;border:none;line-height:1;
-  transition:color .2s;
-}
-.lb-close:hover{color:var(--sf);}
-.lb-nav{
-  position:absolute;top:50%;transform:translateY(-50%);
-  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
-  color:#fff;font-size:1.4rem;width:48px;height:48px;
-  display:flex;align-items:center;justify-content:center;
-  cursor:pointer;transition:background .2s;
-}
-.lb-nav:hover{background:var(--sf);}
-.lb-prev{left:1.5rem;}
-.lb-next{right:1.5rem;}
-.lb-counter{
-  position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);
-  font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.15em;
-  color:rgba(255,255,255,.5);
-}
-@media(max-width:900px){
-  .gallery-grid{grid-template-columns:repeat(3,1fr);grid-auto-rows:180px;}
-  .gi:nth-child(1){grid-column:span 2;grid-row:span 2;}
-  .gi:nth-child(5){grid-column:span 1;}
-}
-@media(max-width:600px){
-  .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;}
-  .gi:nth-child(1){grid-column:span 2;grid-row:span 1;}
-  .gi:nth-child(5){grid-column:span 2;}
-}
-
 .mob-sticky{display:none;position:fixed;bottom:0;left:0;right:0;z-index:900;background:var(--white);border-top:3px solid var(--gr);padding:.65rem 1rem;gap:.6rem;}
 .ms-btn{flex:1;display:flex;align-items:center;justify-content:center;padding:.78rem;font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-decoration:none;font-weight:700;}
 .ms-call{background:var(--off);color:var(--gr);border:2px solid var(--b2);}
@@ -675,10 +667,10 @@ footer{background:var(--ink);border-top:4px solid var(--sf);}
   </a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
+    <li><a href="#gallery">Gallery</a></li>
     <li><a href="#journey">Journey</a></li>
     <li><a href="#vision">Vision</a></li>
     <li><a href="#achievements">Work</a></li>
-    <li><a href="#gallery">Gallery</a></li>
     <li><a href="#press">Press</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -687,10 +679,10 @@ footer{background:var(--ink);border-top:4px solid var(--sf);}
 </nav>
 <div class="mob-menu" id="mobMenu">
   <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#gallery" onclick="closeMenu()">Gallery</a>
   <a href="#journey" onclick="closeMenu()">Journey</a>
   <a href="#vision" onclick="closeMenu()">Vision</a>
   <a href="#achievements" onclick="closeMenu()">Achievements</a>
-  <a href="#gallery" onclick="closeMenu()">Gallery</a>
   <a href="#press" onclick="closeMenu()">Press</a>
   <a href="#contact" onclick="closeMenu()">Contact</a>
 </div>
@@ -710,10 +702,8 @@ footer{background:var(--ink);border-top:4px solid var(--sf);}
   </div></div>
 </div>
 
-<!-- HERO — SPLIT: VIDEO LEFT / CONTENT RIGHT -->
+<!-- HERO -->
 <section id="hero">
-
-  <!-- LEFT: Video column -->
   <div class="hero-video-col">
     <video class="hero-video-bg"
       src="https://res.cloudinary.com/dxmdcoca3/video/upload/v1780655553/AQOWgyDNTAtg_qW0kMz9AnzUyWdioFMOr9fyRaSWahWYV8KdNCnDEUCc5mRGZolEWgVyKo0V3DEfPRt17nTEIdaWVTE-GoCYLbFwGE2D2xicxT5ceQr18M1Zx2hHRyK6iDFFq0FduclmE63QIPbWNDLCKr4fGA9uCZ0eZyA_koy3fj.mp4"
@@ -724,8 +714,6 @@ footer{background:var(--ink);border-top:4px solid var(--sf);}
       <div class="pnt-name">Shri Ashrit<br>Pattanayak</div>
     </div>
   </div>
-
-  <!-- RIGHT: Content column -->
   <div class="hero-content-col">
     <div class="hero-bg-text">PIPILI</div>
     <div class="hero-eyebrow">
@@ -751,7 +739,6 @@ footer{background:var(--ink);border-top:4px solid var(--sf);}
       <a href="#contact" class="btn-saffron">Get in Touch</a>
     </div>
   </div>
-
 </section>
 
 <!-- ABOUT -->
@@ -790,6 +777,34 @@ footer{background:var(--ink);border-top:4px solid var(--sf);}
     </div>
   </div>
 </section>
+
+<!-- GALLERY (after About) -->
+<section id="gallery">
+  <div class="s-eye rv"><span>Photo Gallery</span></div>
+  <h2 class="s-title rv">Moments from <span class="hi">Pipili</span></h2>
+  <div class="s-rule rv"><div class="s-rule-inner"></div><div class="s-rule-inner2"></div><div class="s-rule-inner3"></div></div>
+  <p class="s-sub rv">On the ground, among the people — snapshots from constituency work and community engagement.</p>
+  <div class="gallery-grid">
+    <div class="gi rv" onclick="openLb(0)"><img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730428/706517107_26790706457279629_719581851944588204_n_wkgxjq.jpg" alt="Gallery 1" loading="lazy"></div>
+    <div class="gi rv d1" onclick="openLb(1)"><img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730427/708312355_26802060776144197_1932721393094496342_n_dtlng4.jpg" alt="Gallery 2" loading="lazy"></div>
+    <div class="gi rv d2" onclick="openLb(2)"><img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730427/690721111_26540453702304907_4248702824174880939_n_usc1lz.jpg" alt="Gallery 3" loading="lazy"></div>
+    <div class="gi rv" onclick="openLb(3)"><img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730427/708443025_26828128113537463_3296724678450744182_n_bxc3t2.jpg" alt="Gallery 4" loading="lazy"></div>
+    <div class="gi rv d1" onclick="openLb(4)"><img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730426/714806072_26954972050853068_8574805774345016037_n_hbrocg.jpg" alt="Gallery 5" loading="lazy"></div>
+    <div class="gi rv d2" onclick="openLb(5)"><img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730426/690737250_26540453125638298_7713114072465162947_n_ag7zr4.jpg" alt="Gallery 6" loading="lazy"></div>
+    <div class="gi rv" onclick="openLb(6)"><img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730425/687990519_26489049834111961_6613753820593483749_n_qpmcxx.jpg" alt="Gallery 7" loading="lazy"></div>
+    <div class="gi rv d1" onclick="openLb(7)"><img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730424/704914444_26784766841206924_3825307657982900755_n_pk2e9t.jpg" alt="Gallery 8" loading="lazy"></div>
+    <div class="gi rv d2" onclick="openLb(8)"><img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730424/703659330_26776168815400060_1470435968820268622_n_mv1pp5.jpg" alt="Gallery 9" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lb" id="lb" onclick="closeLbOutside(event)">
+  <button class="lb-close" onclick="closeLb()">&times;</button>
+  <button class="lb-nav lb-prev" onclick="lbNav(-1)">&#8592;</button>
+  <img class="lb-img" id="lbImg" src="" alt="">
+  <button class="lb-nav lb-next" onclick="lbNav(1)">&#8594;</button>
+  <div class="lb-counter" id="lbCounter"></div>
+</div>
 
 <!-- JOURNEY -->
 <section id="journey" class="section">
@@ -900,76 +915,47 @@ footer{background:var(--ink);border-top:4px solid var(--sf);}
 </section>
 
 <!-- CONTACT -->
-<!-- GALLERY -->
-<section id="gallery">
-  <div class="s-eye rv"><span>On the Ground</span></div>
-  <h2 class="s-title rv">Photo <span class="hi">Gallery</span></h2>
-  <div class="s-rule rv"><div class="s-rule-inner"></div><div class="s-rule-inner2"></div><div class="s-rule-inner3"></div></div>
-  <p class="s-sub rv">Moments from constituency work, community outreach, and public service across Pipili.</p>
-  <div class="gallery-grid">
-    <div class="gi rv" onclick="openLb(0)"><img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730428/706517107_26790706457279629_719581851944588204_n_wkgxjq.jpg" alt="Gallery 1" loading="lazy"></div>
-    <div class="gi rv d1" onclick="openLb(1)"><img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730427/708312355_26802060776144197_1932721393094496342_n_dtlng4.jpg" alt="Gallery 2" loading="lazy"></div>
-    <div class="gi rv d2" onclick="openLb(2)"><img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730427/690721111_26540453702304907_4248702824174880939_n_usc1lz.jpg" alt="Gallery 3" loading="lazy"></div>
-    <div class="gi rv" onclick="openLb(3)"><img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730427/708443025_26828128113537463_3296724678450744182_n_bxc3t2.jpg" alt="Gallery 4" loading="lazy"></div>
-    <div class="gi rv d1" onclick="openLb(4)"><img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730426/714806072_26954972050853068_8574805774345016037_n_hbrocg.jpg" alt="Gallery 5" loading="lazy"></div>
-    <div class="gi rv d2" onclick="openLb(5)"><img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730426/690737250_26540453125638298_7713114072465162947_n_ag7zr4.jpg" alt="Gallery 6" loading="lazy"></div>
-    <div class="gi rv" onclick="openLb(6)"><img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730425/687990519_26489049834111961_6613753820593483749_n_qpmcxx.jpg" alt="Gallery 7" loading="lazy"></div>
-    <div class="gi rv d1" onclick="openLb(7)"><img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730424/704914444_26784766841206924_3825307657982900755_n_pk2e9t.jpg" alt="Gallery 8" loading="lazy"></div>
-    <div class="gi rv d2" onclick="openLb(8)"><img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730424/703659330_26776168815400060_1470435968820268622_n_mv1pp5.jpg" alt="Gallery 9" loading="lazy"></div>
-  </div>
-</section>
-
-<!-- LIGHTBOX -->
-<div class="lb" id="lb" onclick="closeLbOutside(event)">
-  <button class="lb-close" onclick="closeLb()">&#x2715;</button>
-  <button class="lb-nav lb-prev" onclick="lbMove(-1)">&#x2039;</button>
-  <img class="lb-img" id="lb-img" src="" alt="">
-  <button class="lb-nav lb-next" onclick="lbMove(1)">&#x203A;</button>
-  <div class="lb-counter" id="lb-counter">1 / 9</div>
-</div>
-
 <section id="contact">
   <div class="ct-l">
     <div class="ct-l-content">
       <div class="ct-l-tag">Get in Touch</div>
-      <h2 class="ct-l-title">Reach <em>Shri Ashrit Pattanayak</em></h2>
-      <div class="ci"><div class="ci-ico">&#x1F4CD;</div><div><div class="ci-k">Constituency</div><div class="ci-v">Pipili, Puri District, Odisha</div></div></div>
-      <div class="ci"><div class="ci-ico">&#x1F3DB;&#xFE0F;</div><div><div class="ci-k">Assembly</div><div class="ci-v">Odisha Legislative Assembly, Bhubaneswar</div></div></div>
-      <div class="ci"><div class="ci-ico">&#x1F4F1;</div><div><div class="ci-k">MLA Office</div><div class="ci-v">Pipili Constituency Office, Puri &mdash; Odisha</div></div></div>
-      <div class="ci"><div class="ci-ico">&#x1F4E7;</div><div><div class="ci-k">Party</div><div class="ci-v">Elected Representative &mdash; Pipili Constituency</div></div></div>
+      <div class="ct-l-title">Reach out to<br><em>Ashrit Pattanayak</em></div>
+      <div class="ci">
+        <div class="ci-ico">&#x1F3E2;</div>
+        <div><div class="ci-k">Office</div><div class="ci-v">MLA Office, Pipili, Puri District, Odisha</div></div>
+      </div>
+      <div class="ci">
+        <div class="ci-ico">&#x1F4CD;</div>
+        <div><div class="ci-k">Constituency</div><div class="ci-v">Pipili, Puri District, Odisha</div></div>
+      </div>
       <div class="ct-social">
-        <a class="csb" href="#">ig</a>
-        <a class="csb" href="#">f</a>
-        <a class="csb" href="#">X</a>
-        <a class="csb" href="#">YT</a>
+        <a class="csb" href="#" aria-label="Facebook">f</a>
+        <a class="csb" href="#" aria-label="Twitter">X</a>
+        <a class="csb" href="#" aria-label="Instagram">&#x1F4F8;</a>
       </div>
     </div>
   </div>
   <div class="ct-r">
-    <div class="form-title">Write to <span>Shri Pattanayak</span></div>
-    <p class="form-sub">Share your concern, suggestion, or support. Our office reviews every submission promptly.</p>
+    <div class="form-title">Send a <span>Message</span></div>
+    <p class="form-sub">Share your concern, suggestion, or request with Shri Ashrit Pattanayak's office.</p>
     <div class="fg2">
-      <div class="fg"><label class="fl">Full Name *</label><input type="text" class="fi" placeholder="Your full name"></div>
-      <div class="fg"><label class="fl">Mobile *</label><input type="tel" class="fi" placeholder="+91 XXXXX XXXXX"></div>
+      <div class="fg"><label class="fl">Full Name</label><input class="fi" type="text" placeholder="Your name"></div>
+      <div class="fg"><label class="fl">Phone</label><input class="fi" type="tel" placeholder="+91 XXXXX XXXXX"></div>
     </div>
-    <div class="fg2">
-      <div class="fg"><label class="fl">Village / Ward</label><input type="text" class="fi" placeholder="Your village or ward"></div>
-      <div class="fg"><label class="fl">Subject *</label>
-        <select class="fse">
-          <option value="">Select a subject</option>
-          <option>Roads &amp; Infrastructure</option>
-          <option>Farmer / Agricultural Issue</option>
-          <option>Education / School</option>
-          <option>Healthcare / Medical</option>
-          <option>Artisan / Craft Support</option>
-          <option>Youth / Employment</option>
-          <option>Government Scheme</option>
-          <option>Other</option>
-        </select>
-      </div>
+    <div class="fg"><label class="fl">Village / Area</label><input class="fi" type="text" placeholder="Your village or area in Pipili"></div>
+    <div class="fg"><label class="fl">Subject</label>
+      <select class="fse">
+        <option>Development / Infrastructure</option>
+        <option>Farmer / Agriculture</option>
+        <option>Healthcare</option>
+        <option>Education</option>
+        <option>Artisan / Craft Support</option>
+        <option>Youth / Employment</option>
+        <option>Other</option>
+      </select>
     </div>
-    <div class="fg"><label class="fl">Your Message *</label><textarea class="fta" placeholder="Describe your concern or suggestion..."></textarea></div>
-    <button class="fbtn" onclick="handleSubmit(this)">Submit Message &rarr;</button>
+    <div class="fg"><label class="fl">Message</label><textarea class="fta" placeholder="Describe your concern or request..."></textarea></div>
+    <button class="fbtn">SEND MESSAGE &rarr;</button>
   </div>
 </section>
 
@@ -978,67 +964,103 @@ footer{background:var(--ink);border-top:4px solid var(--sf);}
   <div class="ft-body">
     <div>
       <div class="ft-brand">Ashrit <span>Pattanayak</span></div>
-      <p class="ft-tag">MLA &mdash; Pipili Constituency, Puri District, Odisha. Committed to the development, welfare, and prosperity of every family in Pipili.</p>
+      <div class="ft-tag">MLA, Pipili Constituency &middot; Puri District, Odisha. Committed to development, welfare, and a prosperous Pipili.</div>
       <div class="ft-flag"><span></span><span></span><span></span></div>
     </div>
     <div>
       <div class="ft-h">Quick Links</div>
       <ul class="ft-list">
         <li><a href="#about">About</a></li>
+        <li><a href="#gallery">Gallery</a></li>
         <li><a href="#journey">Journey</a></li>
         <li><a href="#vision">Vision</a></li>
         <li><a href="#achievements">Work</a></li>
-        <li><a href="#press">Media</a></li>
+        <li><a href="#press">Press</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
     <div>
-      <div class="ft-h">Focus Areas</div>
+      <div class="ft-h">Constituency</div>
       <ul class="ft-list">
+        <li><a href="#">Pipili Constituency</a></li>
+        <li><a href="#">Puri District</a></li>
+        <li><a href="#">Odisha Legislature</a></li>
         <li><a href="#">Farmer Welfare</a></li>
-        <li><a href="#">Appliqu&eacute; Artisans</a></li>
-        <li><a href="#">Education</a></li>
-        <li><a href="#">Healthcare</a></li>
-        <li><a href="#">Youth &amp; Employment</a></li>
+        <li><a href="#">Artisan Support</a></li>
       </ul>
     </div>
   </div>
   <div class="ft-btm">
-    <span>&copy; 2025 Shri Ashrit Pattanayak &mdash; MLA Pipili Constituency, Puri District, Odisha.</span>
-    <span>Jai Odisha &#x1F1EE;&#x1F1F3; &nbsp;&bull;&nbsp; Jai India &#x1FAB7;</span>
+    <span>&copy; 2025 Shri Ashrit Pattanayak &middot; MLA, Pipili</span>
+    <span>Official Website &middot; Pipili Constituency &middot; Puri District, Odisha</span>
   </div>
 </footer>
 
+<!-- MOB STICKY -->
 <div class="mob-sticky">
-  <a href="#contact" class="ms-btn ms-call">&#x1F4DE; Call Office</a>
-  <a href="#contact" class="ms-btn ms-write">&#x2709;&#xFE0F; Write</a>
+  <a href="tel:" class="ms-btn ms-call">&#x1F4DE; Call Office</a>
+  <a href="#contact" class="ms-btn ms-write">&#x270D; Write to MLA</a>
 </div>
 <button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#x2191;</button>
 
 <script>
-var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('vis');io.unobserve(x.target);}});},{threshold:.08});
-document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
-window.addEventListener('scroll',function(){
-  var sy=window.scrollY;
-  document.getElementById('btt').classList.toggle('show',sy>500);
-  var cur='';
-  document.querySelectorAll('section[id],div[id]').forEach(function(s){if(sy>=s.offsetTop-120)cur=s.id;});
-  document.querySelectorAll('.nav-links a').forEach(function(a){a.classList.toggle('act',a.getAttribute('href')==='#'+cur);});
+// Nav active
+const navLinks = document.querySelectorAll('.nav-links a');
+const sections = document.querySelectorAll('section[id], div[id]');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => { if(window.scrollY >= s.offsetTop - 80) cur = s.id; });
+  navLinks.forEach(a => { a.classList.toggle('act', a.getAttribute('href') === '#'+cur); });
+  document.getElementById('btt').classList.toggle('show', window.scrollY > 300);
 });
-function toggleMenu(){document.getElementById('mobMenu').classList.toggle('open');}
-function closeMenu(){document.getElementById('mobMenu').classList.remove('open');}
-var lbImgs=['https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730428/706517107_26790706457279629_719581851944588204_n_wkgxjq.jpg','https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730427/708312355_26802060776144197_1932721393094496342_n_dtlng4.jpg','https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730427/690721111_26540453702304907_4248702824174880939_n_usc1lz.jpg','https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730427/708443025_26828128113537463_3296724678450744182_n_bxc3t2.jpg','https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730426/714806072_26954972050853068_8574805774345016037_n_hbrocg.jpg','https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730426/690737250_26540453125638298_7713114072465162947_n_ag7zr4.jpg','https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730425/687990519_26489049834111961_6613753820593483749_n_qpmcxx.jpg','https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730424/704914444_26784766841206924_3825307657982900755_n_pk2e9t.jpg','https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730424/703659330_26776168815400060_1470435968820268622_n_mv1pp5.jpg'];
-var lbIdx=0;
-function openLb(i){lbIdx=i;document.getElementById('lb-img').src=lbImgs[lbIdx];document.getElementById('lb-counter').textContent=(lbIdx+1)+' / '+lbImgs.length;document.getElementById('lb').classList.add('open');document.body.style.overflow='hidden';}
-function closeLb(){document.getElementById('lb').classList.remove('open');document.body.style.overflow='';}
-function closeLbOutside(e){if(e.target===document.getElementById('lb'))closeLb();}
-function lbMove(d){lbIdx=(lbIdx+d+lbImgs.length)%lbImgs.length;document.getElementById('lb-img').src=lbImgs[lbIdx];document.getElementById('lb-counter').textContent=(lbIdx+1)+' / '+lbImgs.length;}
-document.addEventListener('keydown',function(e){if(document.getElementById('lb').classList.contains('open')){if(e.key==='Escape')closeLb();if(e.key==='ArrowRight')lbMove(1);if(e.key==='ArrowLeft')lbMove(-1);}});
-function handleSubmit(btn){
-  btn.textContent='Submitted \u2014 Thank You!';
-  btn.style.background='#1A1A1A';
-  setTimeout(function(){btn.textContent='Submit Message \u2192';btn.style.background='';},3500);
+
+// Reveal
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('vis'); });
+}, {threshold:.1});
+document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+
+// Ham
+function toggleMenu(){ document.getElementById('mobMenu').classList.toggle('open'); }
+function closeMenu(){ document.getElementById('mobMenu').classList.remove('open'); }
+
+// Lightbox
+const imgs = [
+  'https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730428/706517107_26790706457279629_719581851944588204_n_wkgxjq.jpg',
+  'https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730427/708312355_26802060776144197_1932721393094496342_n_dtlng4.jpg',
+  'https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730427/690721111_26540453702304907_4248702824174880939_n_usc1lz.jpg',
+  'https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730427/708443025_26828128113537463_3296724678450744182_n_bxc3t2.jpg',
+  'https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730426/714806072_26954972050853068_8574805774345016037_n_hbrocg.jpg',
+  'https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730426/690737250_26540453125638298_7713114072465162947_n_ag7zr4.jpg',
+  'https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730425/687990519_26489049834111961_6613753820593483749_n_qpmcxx.jpg',
+  'https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730424/704914444_26784766841206924_3825307657982900755_n_pk2e9t.jpg',
+  'https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730424/703659330_26776168815400060_1470435968820268622_n_mv1pp5.jpg'
+];
+let cur = 0;
+function openLb(i){
+  cur = i;
+  document.getElementById('lbImg').src = imgs[i];
+  document.getElementById('lbCounter').textContent = (i+1) + ' / ' + imgs.length;
+  document.getElementById('lb').classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
+function closeLb(){
+  document.getElementById('lb').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeLbOutside(e){ if(e.target.id==='lb') closeLb(); }
+function lbNav(d){
+  cur = (cur + d + imgs.length) % imgs.length;
+  document.getElementById('lbImg').src = imgs[cur];
+  document.getElementById('lbCounter').textContent = (cur+1) + ' / ' + imgs.length;
+}
+document.addEventListener('keydown', e => {
+  if(document.getElementById('lb').classList.contains('open')){
+    if(e.key==='ArrowLeft') lbNav(-1);
+    if(e.key==='ArrowRight') lbNav(1);
+    if(e.key==='Escape') closeLb();
+  }
+});
 </script>
 </body>
 </html>
