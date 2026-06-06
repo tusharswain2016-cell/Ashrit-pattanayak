@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shri Ashrit Pattanayak | MLA Pipili</title>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+:root{
+  --sf:#FF6B00;
+  --sf2:#FF9534;
+  --sf3:#FFD07A;
+  --gr:#1A1A1A;
+  --gr2:#252525;
+  --gr3:#333333;
+  --white:#FFFFFF;
+  --off:#F9F7F4;
+  --ink:#0D0D0D;
+  --mid:#555555;
+  --light:#999999;
+  --b1:rgba(0,0,0,0.08);
+  --b2:rgba(0,0,0,0.15);
+  --bs1:rgba(0,0,0,0.06);
+}
+body{font-family:'Outfit',sans-serif;background:var(--off);color:var(--ink);overflow-x:hidden;}
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-thumb{background:var(--sf);}
+
+/* ══ HEADER BAND ══ */
+.header-band{
+  background:var(--gr);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.5rem 5%;
+  border-bottom:3px solid var(--sf);
+}
+.hb-left{display:flex;align-items:center;gap:1.5rem;}
+.tricolor{display:flex;flex-direction:column;width:4px;height:28px;flex-shrink:0;}
+.tricolor span:nth-child(1){flex:1;background:#FF9933;}
+.tricolor span:nth-child(2){flex:1;background:#fff;}
+.tricolor span:nth-child(3){flex:1;background:#138808;}
+.hb-name{font-family:'Tiro Devanagari Hindi',serif;font-size:1.05rem;color:#fff;line-height:1;}
+.hb-role{font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.15em;color:rgba(255,255,255,.5);margin-top:.1rem;}
+.hb-right{display:flex;align-items:center;gap:1rem;}
+.hb-tag{background:var(--sf);color:#fff;font-family:'Space Mono',monospace;font-size:.52rem;letter-spacing:.1em;padding:.3rem .9rem;font-weight:700;}
+.hb-sub{font-family:'Space Mono',monospace;font-size:.5rem;letter-spacing:.12em;color:rgba(255,255,255,.35);}
+@media(max-width:600px){.hb-right .hb-sub{display:none;}}
+
+/* ══ NAV ══ */
+nav{
+  position:sticky;top:0;z-index:999;
+  background:var(--white);
+  border-bottom:1px solid var(--b2);
+  padding:0 5%;height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+  box-shadow:0 2px 24px var(--bs1);
+}
+.logo{display:flex;align-items:center;gap:.75rem;text-decoration:none;}
+.logo-sq{
+  width:40px;height:40px;
+  background:var(--gr);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;
+  position:relative;
+  flex-shrink:0;
+}
+.logo-sq::after{
+  content:'';position:absolute;
+  bottom:-3px;right:-3px;
+  width:100%;height:100%;
+  border:2px solid var(--sf);
+  z-index:-1;
+}
+.logo-t1{font-family:'Tiro Devanagari Hindi',serif;font-size:1rem;color:var(--gr);line-height:1;}
+.logo-t2{font-family:'Space Mono',monospace;font-size:.48rem;letter-spacing:.15em;color:var(--sf);margin-top:.1rem;}
+.nav-links{display:flex;gap:1.8rem;list-style:none;}
+.nav-links a{font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color .2s;}
+.nav-links a:hover,.nav-links a.act{color:var(--sf);}
+.nav-cta{
+  background:var(--gr);color:#fff;
+  font-family:'Space Mono',monospace;font-size:.52rem;letter-spacing:.1em;
+  padding:.6rem 1.5rem;text-decoration:none;
+  border:2px solid var(--gr);
+  transition:all .2s;
+}
+.nav-cta:hover{background:transparent;color:var(--gr);}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.ham span{width:22px;height:2px;background:var(--gr);display:block;}
+.mob-menu{display:none;position:fixed;top:64px;left:0;right:0;background:var(--white);border-bottom:3px solid var(--gr);padding:1.5rem 5%;z-index:998;flex-direction:column;gap:.4rem;}
+.mob-menu.open{display:flex;}
+.mob-menu a{font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:var(--ink);text-decoration:none;padding:.65rem 0;border-bottom:1px solid var(--b1);}
+
+/* ══ TICKER ══ */
+.ticker{background:var(--sf);height:30px;display:flex;align-items:center;overflow:hidden;}
+.ticker-label{background:var(--gr);color:#fff;font-family:'Space Mono',monospace;font-size:.5rem;letter-spacing:.18em;padding:0 1.2rem;height:100%;display:flex;align-items:center;white-space:nowrap;flex-shrink:0;}
+.ticker-scroll{flex:1;overflow:hidden;}
+.ticker-inner{display:flex;animation:ts 28s linear infinite;white-space:nowrap;}
+.ticker-item{font-family:'Outfit',sans-serif;font-size:.75rem;font-weight:600;color:#fff;padding:0 2.5rem;}
+.ticker-dot{color:rgba(255,255,255,.45);}
+@keyframes ts{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+
+/* ══ HERO — SPLIT: VIDEO LEFT / CONTENT RIGHT ══ */
+#hero{
+  min-height:calc(100vh - 110px);
+  display:grid;
+  grid-template-columns:45% 55%;
+  position:relative;
+  overflow:hidden;
+}
+
+/* LEFT: video column */
+.hero-video-col{
+  position:relative;
+  overflow:hidden;
+  background:var(--gr);
+  min-height:calc(100vh - 110px);
+}
+.hero-video-col::before{
+  content:'';position:absolute;
+  top:0;left:0;right:0;bottom:0;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.45) 0%, transparent 30%),
+    linear-gradient(to top, rgba(0,0,0,.8) 0%, transparent 45%);
+  z-index:1;pointer-events:none;
+}
+/* diagonal slash overlap onto right col */
+.hero-video-col::after{
+  content:'';position:absolute;
+  top:0;right:-40px;
+  width:80px;height:100%;
+  background:var(--off);
+  transform:skewX(-4deg);
+  z-index:2;
+}
+.hero-video-bg{
+  position:absolute;
+  top:0;left:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center top;
+  display:block;
+}
+/* name tag at bottom of video col */
+.photo-name-tag{
+  position:absolute;bottom:2.5rem;left:2rem;right:4rem;z-index:3;
+}
+.pnt-line1{
+  background:var(--sf);
+  display:inline-block;
+  font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.2em;
+  color:#fff;padding:.3rem .8rem;margin-bottom:.4rem;
+}
+.pnt-name{
+  font-family:'Tiro Devanagari Hindi',serif;
+  font-size:clamp(1.6rem,3.5vw,2.6rem);
+  color:#fff;line-height:1.05;
+  text-shadow:0 2px 20px rgba(0,0,0,.5);
+}
+
+/* RIGHT: content column */
+.hero-content-col{
+  background:var(--off);
+  display:flex;flex-direction:column;
+  justify-content:center;
+  padding:4rem 6% 4rem 8%;
+  position:relative;
+  overflow:hidden;
+}
+/* big decorative text behind */
+.hero-bg-text{
+  position:absolute;
+  right:-1rem;top:50%;transform:translateY(-50%);
+  font-family:'Tiro Devanagari Hindi',serif;
+  font-size:clamp(6rem,12vw,10rem);
+  color:rgba(0,0,0,.03);
+  line-height:1;white-space:nowrap;
+  pointer-events:none;user-select:none;
+  letter-spacing:.05em;
+}
+/* saffron-charcoal vertical accent bar */
+.hero-content-col::before{
+  content:'';
+  position:absolute;left:0;top:0;bottom:0;
+  width:5px;
+  background:linear-gradient(to bottom, var(--sf) 0%, var(--gr) 50%, var(--sf) 100%);
+}
+.hero-eyebrow{
+  display:flex;align-items:center;gap:.6rem;
+  margin-bottom:1.5rem;
+}
+.hero-eyebrow-dot{width:8px;height:8px;background:var(--sf);border-radius:50%;}
+.hero-eyebrow span{font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.2em;color:var(--sf);font-weight:700;}
+.hero-title{
+  font-family:'Tiro Devanagari Hindi',serif;
+  font-size:clamp(1.8rem,4vw,3.5rem);
+  line-height:1.1;color:var(--ink);
+  margin-bottom:1.2rem;
+}
+.hero-title .shri{
+  display:block;font-size:.38em;
+  font-family:'Outfit',sans-serif;font-weight:300;
+  color:var(--light);letter-spacing:.3em;text-transform:uppercase;
+  margin-bottom:.2rem;
+}
+.hero-title .last{color:var(--sf);}
+.c-badge{
+  display:flex;align-items:stretch;
+  border:2px solid var(--gr);
+  width:fit-content;margin-bottom:2rem;
+  overflow:hidden;
+}
+.c-badge-l{background:var(--gr);color:#fff;font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.1em;padding:.5rem .9rem;display:flex;align-items:center;}
+.c-badge-r{background:transparent;color:var(--gr);font-family:'Outfit',sans-serif;font-size:.88rem;font-weight:700;padding:.5rem .9rem;display:flex;align-items:center;}
+.hero-desc{font-size:.93rem;line-height:1.9;color:var(--mid);max-width:420px;margin-bottom:2.5rem;}
+.hero-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border:2px solid var(--b2);
+  background:var(--white);
+  margin-bottom:2.5rem;
+  overflow:hidden;
+}
+.hstat{padding:1.2rem 1rem;text-align:center;border-right:1px solid var(--b2);}
+.hstat:last-child{border:none;}
+.hstat-n{font-family:'Tiro Devanagari Hindi',serif;font-size:1.8rem;color:var(--sf);line-height:1;display:block;}
+.hstat-l{font-family:'Space Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--light);display:block;margin-top:.2rem;}
+.hero-btns{display:flex;gap:.8rem;flex-wrap:wrap;}
+.btn-dark{
+  background:var(--gr);color:#fff;
+  font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.1em;
+  padding:.85rem 2rem;text-decoration:none;font-weight:700;
+  border:2px solid var(--gr);
+  transition:all .2s;display:inline-block;
+}
+.btn-dark:hover{background:transparent;color:var(--gr);}
+.btn-saffron{
+  background:var(--sf);color:#fff;
+  font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.1em;
+  padding:.85rem 2rem;text-decoration:none;font-weight:700;
+  border:2px solid var(--sf);
+  transition:all .2s;display:inline-block;
+}
+.btn-saffron:hover{background:transparent;color:var(--sf);}
+
+/* ══ SECTION BASE ══ */
+.section{padding:5rem 8%;}
+.section.alt{background:var(--white);}
+.section.dark{background:var(--gr);}
+.s-eye{display:flex;align-items:center;gap:.7rem;margin-bottom:.5rem;}
+.s-eye::before{content:'';width:4px;height:20px;background:var(--sf);}
+.s-eye span{font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.2em;color:var(--sf);}
+.s-title{font-family:'Tiro Devanagari Hindi',serif;font-size:clamp(1.8rem,3vw,2.8rem);color:var(--ink);line-height:1.1;margin-bottom:.4rem;}
+.s-title .hi{color:var(--sf);}
+.s-title.lt{color:#fff;}
+.s-title.lt .hi{color:var(--sf3);}
+.s-rule{display:flex;height:3px;width:80px;margin:1rem 0 2.5rem;}
+.s-rule-inner{flex:1;background:var(--sf);}
+.s-rule-inner2{flex:1;background:var(--gr);}
+.s-rule-inner3{flex:1;background:var(--sf);}
+.s-sub{font-size:.92rem;color:var(--mid);line-height:1.9;max-width:520px;margin-bottom:2.5rem;}
+.s-sub.lt{color:rgba(255,255,255,.55);}
+
+/* ══ ABOUT ══ */
+.about-layout{display:grid;grid-template-columns:260px 1fr;gap:3.5rem;align-items:start;}
+.apc{
+  background:var(--white);
+  border:2px solid var(--b2);
+  overflow:hidden;
+  position:sticky;top:84px;
+}
+.apc-photo{
+  width:100%;aspect-ratio:3/4;overflow:hidden;
+  position:relative;background:var(--gr);
+}
+.apc-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;}
+.apc-photo-overlay{position:absolute;bottom:0;left:0;right:0;height:35%;background:linear-gradient(to top,var(--gr),transparent);}
+.apc-photo-badge{
+  position:absolute;bottom:.8rem;left:.8rem;right:.8rem;
+  background:var(--sf);color:#fff;
+  font-family:'Tiro Devanagari Hindi',serif;font-size:.88rem;
+  padding:.35rem .8rem;text-align:center;
+}
+.apc-rows{padding:1rem 1.2rem;}
+.apc-row{display:flex;justify-content:space-between;gap:.5rem;padding:.45rem 0;border-bottom:1px solid var(--b1);}
+.apc-row:last-child{border:none;}
+.ak{font-family:'Space Mono',monospace;font-size:.48rem;letter-spacing:.1em;color:var(--light);flex-shrink:0;}
+.av{font-size:.8rem;font-weight:700;color:var(--ink);text-align:right;}
+.about-quote{
+  font-family:'Tiro Devanagari Hindi',serif;font-size:1.25rem;
+  color:var(--ink);line-height:1.65;
+  padding:1.2rem 1.5rem;
+  background:linear-gradient(135deg,rgba(0,0,0,.03),rgba(255,107,0,.04));
+  border-top:3px solid var(--sf);
+  border-bottom:3px solid var(--gr);
+  margin-bottom:2rem;
+}
+.about-body{font-size:.9rem;color:var(--mid);line-height:1.9;margin-bottom:.9rem;}
+.afacts{display:grid;grid-template-columns:1fr 1fr;margin-top:2rem;border:2px solid var(--b2);}
+.af{padding:.85rem 1.1rem;border-right:1px solid var(--b1);border-bottom:1px solid var(--b1);}
+.af:nth-child(2n){border-right:none;}
+.af:nth-last-child(-n+2){border-bottom:none;}
+.af-k{font-family:'Space Mono',monospace;font-size:.48rem;letter-spacing:.1em;color:var(--sf);margin-bottom:.2rem;}
+.af-v{font-size:.85rem;font-weight:700;color:var(--ink);}
+
+/* ══ JOURNEY ══ */
+.journey-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;position:relative;margin-top:2rem;}
+.journey-grid::before{
+  content:'';position:absolute;
+  left:50%;top:0;bottom:0;
+  width:2px;
+  background:linear-gradient(to bottom,var(--sf),var(--gr),var(--sf));
+  transform:translateX(-50%);
+}
+.jcard{
+  background:var(--white);
+  border:1px solid var(--b2);
+  padding:1.5rem;
+  position:relative;
+  transition:all .25s;
+}
+.jcard:hover{border-color:var(--sf);box-shadow:0 6px 28px var(--bs1);transform:translateY(-3px);}
+.jcard.left{text-align:right;}
+.jcard.left::after{
+  content:'';position:absolute;
+  right:-1.6rem;top:1.5rem;
+  width:12px;height:12px;border-radius:50%;
+  background:var(--sf);border:3px solid var(--off);
+  box-shadow:0 0 0 3px rgba(255,107,0,.2);
+}
+.jcard.right{margin-top:2.5rem;}
+.jcard.right::before{
+  content:'';position:absolute;
+  left:-1.6rem;top:1.5rem;
+  width:12px;height:12px;border-radius:50%;
+  background:var(--gr);border:3px solid var(--off);
+  box-shadow:0 0 0 3px rgba(0,0,0,.15);
+}
+.jcard-yr{
+  display:inline-block;
+  background:var(--gr);color:#fff;
+  font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.1em;
+  padding:.25rem .7rem;margin-bottom:.6rem;
+}
+.jcard.left .jcard-yr{background:var(--sf);}
+.jcard-title{font-family:'Tiro Devanagari Hindi',serif;font-size:1.05rem;color:var(--ink);margin-bottom:.4rem;}
+.jcard-desc{font-size:.83rem;color:var(--mid);line-height:1.8;}
+.jcard-spacer{height:0;}
+
+/* ══ VISION ══ */
+.vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--b2);margin-top:2.5rem;}
+.vc{
+  padding:2rem 1.6rem;
+  border-right:1px solid var(--b2);
+  border-bottom:1px solid var(--b2);
+  position:relative;overflow:hidden;
+  transition:background .25s;
+  background:var(--white);
+}
+.vc:nth-child(3n){border-right:none;}
+.vc:nth-last-child(-n+3){border-bottom:none;}
+.vc:hover{background:var(--off);}
+.vc-accent{position:absolute;top:0;left:0;width:100%;height:4px;}
+.vc-accent.sf{background:var(--sf);}
+.vc-accent.dk{background:var(--gr);}
+.vc-num{font-family:'Tiro Devanagari Hindi',serif;font-size:3.5rem;color:rgba(0,0,0,.04);position:absolute;top:.2rem;right:.8rem;line-height:1;}
+.vc-icon{font-size:1.6rem;margin-bottom:.8rem;display:block;}
+.vc-title{font-family:'Tiro Devanagari Hindi',serif;font-size:1.05rem;color:var(--ink);margin-bottom:.4rem;}
+.vc-text{font-size:.82rem;color:var(--mid);line-height:1.8;}
+
+/* ══ ACHIEVEMENTS ══ */
+.ach-wrap{background:var(--gr);padding:5rem 8%;}
+.big-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(255,255,255,.06);margin:2rem 0;}
+.bstat{background:rgba(255,255,255,.03);padding:2.5rem 1rem;text-align:center;transition:background .2s;}
+.bstat:hover{background:rgba(255,107,0,.15);}
+.bstat-n{font-family:'Tiro Devanagari Hindi',serif;font-size:2.8rem;color:var(--sf2);line-height:1;}
+.bstat-n sup{font-size:1.3rem;}
+.bstat-l{font-family:'Space Mono',monospace;font-size:.45rem;letter-spacing:.12em;color:rgba(255,255,255,.3);margin-top:.4rem;}
+.hl-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;margin-top:1.5rem;}
+.hlc{
+  border:1px solid rgba(255,255,255,.1);
+  background:rgba(255,255,255,.04);
+  padding:1.8rem 1.5rem;
+  position:relative;overflow:hidden;
+}
+.hlc::before{content:'';position:absolute;top:0;left:0;bottom:0;width:4px;background:var(--sf);}
+.hlc-yr{font-family:'Space Mono',monospace;font-size:.5rem;letter-spacing:.15em;color:var(--sf2);margin-bottom:.4rem;}
+.hlc-title{font-family:'Tiro Devanagari Hindi',serif;font-size:1rem;color:#fff;margin-bottom:.4rem;}
+.hlc-body{font-size:.82rem;color:rgba(255,255,255,.4);line-height:1.75;}
+
+/* ══ PRESS ══ */
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:auto;gap:1.5rem;}
+.pc{
+  background:var(--white);
+  border:2px solid var(--b2);
+  padding:1.8rem;
+  position:relative;
+  overflow:hidden;
+  transition:all .25s;
+}
+.pc:hover{border-color:var(--sf);transform:translateY(-3px);box-shadow:0 8px 32px var(--bs1);}
+.pc.feat{
+  grid-column:span 2;
+  background:var(--gr);
+  border-color:var(--gr);
+}
+.pc.feat:hover{border-color:var(--sf2);box-shadow:0 8px 32px rgba(0,0,0,.3);}
+.pc-src{font-family:'Space Mono',monospace;font-size:.5rem;letter-spacing:.15em;color:var(--sf);margin-bottom:.8rem;}
+.pc.feat .pc-src{color:var(--sf3);}
+.pc-hl{font-family:'Tiro Devanagari Hindi',serif;font-size:1rem;color:var(--ink);line-height:1.55;margin-bottom:.6rem;}
+.pc.feat .pc-hl{font-size:1.35rem;color:#fff;}
+.pc-dt{font-family:'Space Mono',monospace;font-size:.48rem;letter-spacing:.12em;color:var(--light);}
+.pc.feat .pc-dt{color:rgba(255,255,255,.35);}
+.pc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--sf);transform:scaleX(0);transform-origin:left;transition:transform .3s;}
+.pc:hover::after{transform:scaleX(1);}
+.pc.feat::after{background:var(--sf3);}
+
+/* ══ CONTACT ══ */
+#contact{display:grid;grid-template-columns:1fr 1fr;}
+.ct-l{
+  background:linear-gradient(160deg, var(--gr) 0%, var(--gr2) 100%);
+  padding:5rem 6%;
+  position:relative;overflow:hidden;
+}
+.ct-l::before{
+  content:'';position:absolute;
+  top:-4rem;right:-4rem;
+  width:240px;height:240px;
+  border:2px solid rgba(255,255,255,.05);
+  border-radius:50%;
+}
+.ct-l::after{
+  content:'';position:absolute;
+  bottom:-4rem;left:-4rem;
+  width:180px;height:180px;
+  border:2px solid rgba(255,107,0,.12);
+  border-radius:50%;
+}
+.ct-l-content{position:relative;z-index:1;}
+.ct-l-tag{background:var(--sf);color:#fff;font-family:'Space Mono',monospace;font-size:.5rem;letter-spacing:.18em;padding:.3rem .9rem;display:inline-block;margin-bottom:1.2rem;}
+.ct-l-title{font-family:'Tiro Devanagari Hindi',serif;font-size:2.2rem;color:#fff;line-height:1.15;margin-bottom:1.8rem;}
+.ct-l-title em{color:var(--sf3);font-style:italic;}
+.ci{display:flex;gap:.9rem;align-items:flex-start;padding:.85rem 0;border-bottom:1px solid rgba(255,255,255,.08);}
+.ci:last-of-type{border:none;}
+.ci-ico{
+  width:32px;height:32px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.12);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.78rem;flex-shrink:0;
+}
+.ci-k{font-family:'Space Mono',monospace;font-size:.48rem;letter-spacing:.14em;color:rgba(255,255,255,.4);margin-bottom:.12rem;}
+.ci-v{font-size:.85rem;font-weight:700;color:#fff;}
+.ct-social{display:flex;gap:.5rem;margin-top:2rem;}
+.csb{
+  width:36px;height:36px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.18);
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  font-size:.75rem;font-weight:700;text-decoration:none;transition:all .2s;
+}
+.csb:hover{background:var(--sf);border-color:var(--sf);}
+.ct-r{background:var(--off);padding:5rem 6%;}
+.form-title{font-family:'Tiro Devanagari Hindi',serif;font-size:1.9rem;color:var(--ink);margin-bottom:.3rem;}
+.form-title span{color:var(--sf);}
+.form-sub{font-size:.85rem;color:var(--mid);margin-bottom:2rem;}
+.fg{margin-bottom:1rem;}
+.fg2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.fl{display:block;font-family:'Space Mono',monospace;font-size:.5rem;letter-spacing:.12em;color:var(--mid);margin-bottom:.4rem;}
+.fi,.fse,.fta{
+  width:100%;padding:.75rem 1rem;
+  background:var(--white);
+  border:2px solid var(--b2);
+  color:var(--ink);
+  font-family:'Outfit',sans-serif;font-size:.9rem;
+  outline:none;transition:border-color .2s;appearance:none;
+}
+.fi:focus,.fse:focus,.fta:focus{border-color:var(--sf);}
+.fta{resize:vertical;min-height:90px;}
+.fbtn{
+  width:100%;padding:.9rem;
+  background:var(--gr);color:#fff;border:none;
+  font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.14em;
+  cursor:pointer;transition:background .2s;
+}
+.fbtn:hover{background:var(--sf);}
+
+/* ══ FOOTER ══ */
+footer{background:var(--ink);border-top:4px solid var(--sf);}
+.ft-body{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;padding:3.5rem 8% 2.5rem;border-bottom:1px solid rgba(255,255,255,.06);}
+.ft-brand{font-family:'Tiro Devanagari Hindi',serif;font-size:1.4rem;color:#fff;margin-bottom:.5rem;}
+.ft-brand span{color:var(--sf);}
+.ft-tag{font-size:.82rem;color:rgba(255,255,255,.2);line-height:1.75;max-width:260px;}
+.ft-flag{display:flex;height:3px;width:60px;margin-top:1.5rem;}
+.ft-flag span:nth-child(1){flex:1;background:#FF9933;}
+.ft-flag span:nth-child(2){flex:1;background:#fff;}
+.ft-flag span:nth-child(3){flex:1;background:#138808;}
+.ft-h{font-family:'Space Mono',monospace;font-size:.5rem;letter-spacing:.2em;color:var(--sf);margin-bottom:1.2rem;}
+.ft-list{list-style:none;display:flex;flex-direction:column;gap:.5rem;}
+.ft-list a{font-size:.82rem;color:rgba(255,255,255,.2);text-decoration:none;transition:color .2s;}
+.ft-list a:hover{color:var(--sf);}
+.ft-btm{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 8%;font-family:'Space Mono',monospace;font-size:.45rem;letter-spacing:.08em;color:rgba(255,255,255,.12);flex-wrap:wrap;gap:.5rem;}
+
+/* ══ MOB STICKY ══ */
+/* ══ GALLERY ══ */
+#gallery{background:var(--white);padding:5rem 8%;}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-auto-rows:220px;
+  gap:6px;
+  margin-top:2.5rem;
+}
+.gi:nth-child(1){grid-column:span 2;grid-row:span 2;}
+.gi:nth-child(5){grid-column:span 2;}
+.gi{
+  position:relative;overflow:hidden;
+  background:var(--gr);
+  cursor:pointer;
+}
+.gi img{
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center top;
+  display:block;
+  transition:transform .5s ease;
+}
+.gi:hover img{transform:scale(1.06);}
+.gi::after{
+  content:'';position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,.55) 0%, transparent 50%);
+  opacity:0;
+  transition:opacity .3s;
+}
+.gi:hover::after{opacity:1;}
+.gi::before{
+  content:'';position:absolute;
+  inset:0;
+  border:3px solid var(--sf);
+  opacity:0;
+  transition:opacity .3s;
+  z-index:2;
+  pointer-events:none;
+}
+.gi:hover::before{opacity:1;}
+.lb{
+  display:none;position:fixed;
+  inset:0;z-index:9999;
+  background:rgba(0,0,0,.92);
+  align-items:center;justify-content:center;
+}
+.lb.open{display:flex;}
+.lb-img{
+  max-width:90vw;max-height:88vh;
+  object-fit:contain;
+  border:3px solid var(--sf);
+}
+.lb-close{
+  position:absolute;top:1.5rem;right:2rem;
+  color:#fff;font-size:2rem;cursor:pointer;
+  background:none;border:none;line-height:1;
+  transition:color .2s;
+}
+.lb-close:hover{color:var(--sf);}
+.lb-nav{
+  position:absolute;top:50%;transform:translateY(-50%);
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+  color:#fff;font-size:1.4rem;width:48px;height:48px;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:background .2s;
+}
+.lb-nav:hover{background:var(--sf);}
+.lb-prev{left:1.5rem;}
+.lb-next{right:1.5rem;}
+.lb-counter{
+  position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);
+  font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.15em;
+  color:rgba(255,255,255,.5);
+}
+@media(max-width:900px){
+  .gallery-grid{grid-template-columns:repeat(3,1fr);grid-auto-rows:180px;}
+  .gi:nth-child(1){grid-column:span 2;grid-row:span 2;}
+  .gi:nth-child(5){grid-column:span 1;}
+}
+@media(max-width:600px){
+  .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;}
+  .gi:nth-child(1){grid-column:span 2;grid-row:span 1;}
+  .gi:nth-child(5){grid-column:span 2;}
+}
+
+.mob-sticky{display:none;position:fixed;bottom:0;left:0;right:0;z-index:900;background:var(--white);border-top:3px solid var(--gr);padding:.65rem 1rem;gap:.6rem;}
+.ms-btn{flex:1;display:flex;align-items:center;justify-content:center;padding:.78rem;font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.1em;text-decoration:none;font-weight:700;}
+.ms-call{background:var(--off);color:var(--gr);border:2px solid var(--b2);}
+.ms-write{background:var(--sf);color:#fff;}
+.btt{position:fixed;bottom:2rem;right:1.5rem;z-index:800;width:44px;height:44px;background:var(--sf);color:#fff;border:none;font-size:1rem;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s;}
+.btt.show{opacity:1;pointer-events:all;}
+
+/* ══ REVEAL ══ */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease;}
+.rv.vis{opacity:1;transform:translateY(0);}
+.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}
+
+/* ══ RESPONSIVE ══ */
+@media(max-width:1100px){
+  #hero{grid-template-columns:1fr;}
+  .hero-video-col{min-height:55vw;max-height:480px;}
+  .hero-video-col::after{display:none;}
+  .hero-content-col{padding:3rem 5%;}
+  .about-layout{grid-template-columns:1fr;}
+  .apc{position:static;max-width:280px;}
+  .big-stats{grid-template-columns:repeat(2,1fr);}
+  .pgrid{grid-template-columns:1fr 1fr;}
+  .pc.feat{grid-column:auto;}
+  .hl-cards{grid-template-columns:1fr;}
+}
+@media(max-width:900px){
+  .vgrid{grid-template-columns:1fr 1fr;}
+  .vc:nth-child(3n){border-right:1px solid var(--b2);}
+  .vc:nth-child(2n){border-right:none;}
+  #contact{grid-template-columns:1fr;}
+  .ft-body{grid-template-columns:1fr 1fr;}
+  .journey-grid{grid-template-columns:1fr;}
+  .journey-grid::before{display:none;}
+  .jcard.left,.jcard.right{margin-top:0;text-align:left;}
+  .jcard.left::after,.jcard.right::before{display:none;}
+  .hl-cards{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none;}
+  .ham{display:flex;}
+  .section{padding:3rem 5%;}
+  .ach-wrap{padding:3rem 5%;}
+  .vgrid{grid-template-columns:1fr;}
+  .vc:nth-child(n){border-right:none;}
+  .big-stats{grid-template-columns:1fr 1fr;}
+  .pgrid{grid-template-columns:1fr;}
+  #contact{display:flex;flex-direction:column;}
+  .ft-body{grid-template-columns:1fr;gap:2rem;padding:2.5rem 5%;}
+  .ft-btm{flex-direction:column;text-align:center;padding:1rem 5%;}
+  .mob-sticky{display:flex;}
+  footer{padding-bottom:66px;}
+  .fg2{grid-template-columns:1fr;}
+  .hero-stats{grid-template-columns:1fr 1fr;}
+  .hstat:last-child{display:none;}
+  .hl-cards{grid-template-columns:1fr;}
+  .hero-content-col{padding:2rem 5% 3rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER BAND -->
+<div class="header-band">
+  <div class="hb-left">
+    <div class="tricolor"><span></span><span></span><span></span></div>
+    <div>
+      <div class="hb-name">Shri Ashrit Pattanayak</div>
+      <div class="hb-role">MLA &middot; PIPILI CONSTITUENCY &middot; PURI DISTRICT</div>
+    </div>
+  </div>
+  <div class="hb-right">
+    <div class="hb-sub">ODISHA LEGISLATIVE ASSEMBLY</div>
+    <div class="hb-tag">Official Site</div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a class="logo" href="#">
+    <div class="logo-sq">&#x1FAB7;</div>
+    <div>
+      <div class="logo-t1">Ashrit Pattanayak</div>
+      <div class="logo-t2">MLA &middot; Pipili</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#journey">Journey</a></li>
+    <li><a href="#vision">Vision</a></li>
+    <li><a href="#achievements">Work</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#press">Press</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get in Touch</a>
+  <div class="ham" id="ham" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#journey" onclick="closeMenu()">Journey</a>
+  <a href="#vision" onclick="closeMenu()">Vision</a>
+  <a href="#achievements" onclick="closeMenu()">Achievements</a>
+  <a href="#gallery" onclick="closeMenu()">Gallery</a>
+  <a href="#press" onclick="closeMenu()">Press</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-label">&#x1F4E2; News</div>
+  <div class="ticker-scroll"><div class="ticker-inner">
+    <div class="ticker-item">MLA &mdash; Pipili Constituency &mdash; Puri District, Odisha</div><span class="ticker-dot">&nbsp;&nbsp;&bull;&nbsp;&nbsp;</span>
+    <div class="ticker-item">Working for development, welfare &amp; prosperity of every Pipili family</div><span class="ticker-dot">&nbsp;&nbsp;&bull;&nbsp;&nbsp;</span>
+    <div class="ticker-item">Championing Pipili&rsquo;s world-famous appliqu&eacute; artisans &amp; farmers</div><span class="ticker-dot">&nbsp;&nbsp;&bull;&nbsp;&nbsp;</span>
+    <div class="ticker-item">Roads, schools, hospitals &mdash; building a stronger Pipili</div><span class="ticker-dot">&nbsp;&nbsp;&bull;&nbsp;&nbsp;</span>
+    <div class="ticker-item">MLA &mdash; Pipili Constituency &mdash; Puri District, Odisha</div><span class="ticker-dot">&nbsp;&nbsp;&bull;&nbsp;&nbsp;</span>
+    <div class="ticker-item">Working for development, welfare &amp; prosperity of every Pipili family</div><span class="ticker-dot">&nbsp;&nbsp;&bull;&nbsp;&nbsp;</span>
+    <div class="ticker-item">Championing Pipili&rsquo;s world-famous appliqu&eacute; artisans &amp; farmers</div><span class="ticker-dot">&nbsp;&nbsp;&bull;&nbsp;&nbsp;</span>
+    <div class="ticker-item">Roads, schools, hospitals &mdash; building a stronger Pipili</div><span class="ticker-dot">&nbsp;&nbsp;&bull;&nbsp;&nbsp;</span>
+  </div></div>
+</div>
+
+<!-- HERO — SPLIT: VIDEO LEFT / CONTENT RIGHT -->
+<section id="hero">
+
+  <!-- LEFT: Video column -->
+  <div class="hero-video-col">
+    <video class="hero-video-bg"
+      src="https://res.cloudinary.com/dxmdcoca3/video/upload/v1780655553/AQOWgyDNTAtg_qW0kMz9AnzUyWdioFMOr9fyRaSWahWYV8KdNCnDEUCc5mRGZolEWgVyKo0V3DEfPRt17nTEIdaWVTE-GoCYLbFwGE2D2xicxT5ceQr18M1Zx2hHRyK6iDFFq0FduclmE63QIPbWNDLCKr4fGA9uCZ0eZyA_koy3fj.mp4"
+      autoplay muted loop playsinline>
+    </video>
+    <div class="photo-name-tag">
+      <div class="pnt-line1">MLA &middot; PIPILI &middot; PURI</div>
+      <div class="pnt-name">Shri Ashrit<br>Pattanayak</div>
+    </div>
+  </div>
+
+  <!-- RIGHT: Content column -->
+  <div class="hero-content-col">
+    <div class="hero-bg-text">PIPILI</div>
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-dot"></div>
+      <span>Member of Legislative Assembly &mdash; Odisha</span>
+    </div>
+    <h1 class="hero-title">
+      <span class="shri">Shri</span>
+      Ashrit<br><span class="last">Pattanayak</span>
+    </h1>
+    <div class="c-badge">
+      <div class="c-badge-l">MLA</div>
+      <div class="c-badge-r">Pipili Constituency &middot; Puri District</div>
+    </div>
+    <p class="hero-desc">A committed people's representative and grassroots leader, working tirelessly for the development, welfare, and future of every family across the Pipili constituency in Puri district, Odisha.</p>
+    <div class="hero-stats">
+      <div class="hstat"><span class="hstat-n">MLA</span><span class="hstat-l">Elected Rep.</span></div>
+      <div class="hstat"><span class="hstat-n">Pipili</span><span class="hstat-l">Constituency</span></div>
+      <div class="hstat"><span class="hstat-n">Puri</span><span class="hstat-l">District</span></div>
+    </div>
+    <div class="hero-btns">
+      <a href="#journey" class="btn-dark">His Journey &rarr;</a>
+      <a href="#contact" class="btn-saffron">Get in Touch</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section alt">
+  <div class="s-eye rv"><span>Who He Is</span></div>
+  <h2 class="s-title rv">Shri Ashrit <span class="hi">Pattanayak</span></h2>
+  <div class="s-rule rv"><div class="s-rule-inner"></div><div class="s-rule-inner2"></div><div class="s-rule-inner3"></div></div>
+  <div class="about-layout">
+    <div class="apc rv">
+      <div class="apc-photo">
+        <img src="https://scontent.cdninstagram.com/v/t51.2885-19/64450100_2391986454379783_2895403158366846976_n.jpg?_nc_cat=110&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy43MjAuQzMifQ%3D%3D&_nc_ohc=TkvoUXkZn5QQ7kNvwGEckav&_nc_oc=AdoLbkBVM6UK9TTJC34l5M6Go69pz9W_bU6H-zY2HfMikuJcVxZ9Y6DmGjCY3Iij-CqnTS0TH0eXj1erAK3Q8Ejb&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_ss=7b6a8&oh=00_Af_irRataOuZ8ZxqvURCqFJG1cbbH9eRcOWy18k1QMOhZA&oe=6A2885D2" alt="Shri Ashrit Pattanayak">
+        <div class="apc-photo-overlay"></div>
+        <div class="apc-photo-badge">Ashrit Pattanayak</div>
+      </div>
+      <div class="apc-rows">
+        <div class="apc-row"><span class="ak">Position</span><span class="av">MLA, Pipili</span></div>
+        <div class="apc-row"><span class="ak">Constituency</span><span class="av">Pipili</span></div>
+        <div class="apc-row"><span class="ak">District</span><span class="av">Puri, Odisha</span></div>
+        <div class="apc-row"><span class="ak">Assembly</span><span class="av">Odisha Legislature</span></div>
+        <div class="apc-row"><span class="ak">Focus</span><span class="av">Development &amp; Welfare</span></div>
+      </div>
+    </div>
+    <div class="about-right">
+      <p class="about-quote rv">"My purpose is to serve every family in Pipili — their prosperity and welfare is my only mission."</p>
+      <p class="about-body rv">Shri Ashrit Pattanayak is the elected Member of Legislative Assembly from the Pipili constituency in Puri district, Odisha. A dedicated public servant, he has committed himself to holistic development — focusing on infrastructure, education, healthcare, and farmer welfare across every corner of the constituency.</p>
+      <p class="about-body rv">Pipili, renowned across the world for its vibrant traditional appliqu&eacute; craft, is a constituency with deep cultural roots and immense untapped potential. Shri Pattanayak has worked to bridge the gap between tradition and modern development, ensuring artisans, farmers, and youth of Pipili have access to new opportunities and government welfare schemes.</p>
+      <p class="about-body rv">With a strong grassroots connect and an unwavering vision for an inclusive, prosperous Pipili, he continues to be the voice of the people in the Odisha Legislative Assembly — raising issues that matter and delivering on the ground.</p>
+      <div class="afacts rv">
+        <div class="af"><div class="af-k">Position</div><div class="af-v">MLA &mdash; Pipili</div></div>
+        <div class="af"><div class="af-k">District</div><div class="af-v">Puri, Odisha</div></div>
+        <div class="af"><div class="af-k">Assembly</div><div class="af-v">Odisha Legislature</div></div>
+        <div class="af"><div class="af-k">Constituency</div><div class="af-v">Pipili</div></div>
+        <div class="af"><div class="af-k">Known For</div><div class="af-v">Grassroots Development</div></div>
+        <div class="af"><div class="af-k">Focus</div><div class="af-v">Farmers, Artisans, Youth</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section id="journey" class="section">
+  <div class="s-eye rv"><span>Career &amp; Service</span></div>
+  <h2 class="s-title rv">The <span class="hi">Journey</span></h2>
+  <div class="s-rule rv"><div class="s-rule-inner"></div><div class="s-rule-inner2"></div><div class="s-rule-inner3"></div></div>
+  <p class="s-sub rv">A journey of public service and grassroots commitment for the people of Pipili.</p>
+  <div class="journey-grid">
+    <div class="jcard left rv">
+      <div class="jcard-yr">Early Years</div>
+      <div class="jcard-title">Entry into Public Life</div>
+      <p class="jcard-desc">Began his public life with deep grassroots connect across Pipili, engaging communities on development and welfare concerns unique to the constituency.</p>
+    </div>
+    <div class="jcard-spacer"></div>
+    <div class="jcard-spacer"></div>
+    <div class="jcard right rv">
+      <div class="jcard-yr">Youth Leadership</div>
+      <div class="jcard-title">Community Activism &amp; Trust Building</div>
+      <p class="jcard-desc">Built strong public trust through youth mobilisation, community outreach, and consistent work on local issues — roads, water, schools, and farmers' needs.</p>
+    </div>
+    <div class="jcard left rv">
+      <div class="jcard-yr">Political Journey</div>
+      <div class="jcard-title">Established Political Presence in Pipili</div>
+      <p class="jcard-desc">Emerged as a key political figure representing the aspirations of the people of Pipili, contesting and building a broad-based constituency connect.</p>
+    </div>
+    <div class="jcard-spacer"></div>
+    <div class="jcard-spacer"></div>
+    <div class="jcard right rv">
+      <div class="jcard-yr">Election</div>
+      <div class="jcard-title">Elected as MLA &mdash; Pipili Constituency</div>
+      <p class="jcard-desc">Elected Member of the Odisha Legislative Assembly from Pipili, earning the trust of voters with a clear agenda of development, welfare, and transparent governance.</p>
+    </div>
+    <div class="jcard left rv">
+      <div class="jcard-yr">Present</div>
+      <div class="jcard-title">Active Service &mdash; Development &amp; Welfare</div>
+      <p class="jcard-desc">Continuing active legislative work, constituency development programmes, and direct engagement with farmers, artisans, youth, and families of Pipili.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VISION -->
+<section id="vision" class="section alt">
+  <div class="s-eye rv"><span>Vision &amp; Agenda</span></div>
+  <h2 class="s-title rv">Building a <span class="hi">Better Pipili</span></h2>
+  <div class="s-rule rv"><div class="s-rule-inner"></div><div class="s-rule-inner2"></div><div class="s-rule-inner3"></div></div>
+  <p class="s-sub rv">Six development pillars guiding every initiative for the people of Pipili constituency.</p>
+  <div class="vgrid">
+    <div class="vc rv"><div class="vc-accent sf"></div><span class="vc-num">01</span><span class="vc-icon">&#x1F33E;</span><div class="vc-title">Farmer Welfare</div><p class="vc-text">Ensuring fair prices, irrigation access, and full government scheme benefits for every farming family across Pipili.</p></div>
+    <div class="vc rv d1"><div class="vc-accent dk"></div><span class="vc-num">02</span><span class="vc-icon">&#x1F9F5;</span><div class="vc-title">Artisan &amp; Craft Support</div><p class="vc-text">Preserving Pipili's world-renowned appliqu&eacute; heritage while creating new markets, exports, and income security for artisans.</p></div>
+    <div class="vc rv d2"><div class="vc-accent sf"></div><span class="vc-num">03</span><span class="vc-icon">&#x1F4DA;</span><div class="vc-title">Education for All</div><p class="vc-text">Improving school infrastructure and ensuring every child in Pipili has access to quality education and scholarship support.</p></div>
+    <div class="vc rv"><div class="vc-accent dk"></div><span class="vc-num">04</span><span class="vc-icon">&#x1F3E5;</span><div class="vc-title">Healthcare Access</div><p class="vc-text">Strengthening primary health centres, regular medical camps, and accessible affordable healthcare for every family.</p></div>
+    <div class="vc rv d1"><div class="vc-accent sf"></div><span class="vc-num">05</span><span class="vc-icon">&#x1F6E3;&#xFE0F;</span><div class="vc-title">Roads &amp; Infrastructure</div><p class="vc-text">Connecting every village with all-weather roads, electricity, clean water supply, and modern civic amenities.</p></div>
+    <div class="vc rv d2"><div class="vc-accent dk"></div><span class="vc-num">06</span><span class="vc-icon">&#x1F91D;</span><div class="vc-title">Youth Empowerment</div><p class="vc-text">Skill development, employment, and entrepreneurship opportunities for the energetic youth of Pipili constituency.</p></div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<div id="achievements" class="ach-wrap">
+  <div class="s-eye rv"><span style="color:var(--sf3);">Track Record</span></div>
+  <h2 class="s-title lt rv">Commitment <span class="hi">in Action</span></h2>
+  <div class="s-rule rv"><div class="s-rule-inner"></div><div style="flex:1;background:rgba(255,255,255,.15);"></div></div>
+  <p class="s-sub lt rv">Numbers that reflect years of dedicated public service and development work across Pipili constituency.</p>
+  <div class="big-stats">
+    <div class="bstat rv"><div class="bstat-n">MLA</div><div class="bstat-l">Elected Representative</div></div>
+    <div class="bstat rv d1"><div class="bstat-n">10<sup>+</sup></div><div class="bstat-l">Years Public Life</div></div>
+    <div class="bstat rv d2"><div class="bstat-n">Pipili</div><div class="bstat-l">Constituency Served</div></div>
+    <div class="bstat rv d3"><div class="bstat-n">Puri</div><div class="bstat-l">District, Odisha</div></div>
+  </div>
+  <div class="hl-cards">
+    <div class="hlc rv"><div class="hlc-yr">Ongoing</div><div class="hlc-title">Constituency Development &mdash; Roads, Water &amp; Electricity</div><p class="hlc-body">Driving infrastructure development across all villages of Pipili with focus on connectivity, clean water, and power supply.</p></div>
+    <div class="hlc rv d1"><div class="hlc-yr">Active</div><div class="hlc-title">Farmer &amp; Artisan Welfare Programmes</div><p class="hlc-body">Ensuring Pipili&rsquo;s farmers and world-famous appliqu&eacute; artisans receive full benefits of government welfare schemes.</p></div>
+    <div class="hlc rv d2"><div class="hlc-yr">Regular</div><div class="hlc-title">Medical Camps &amp; Community Outreach</div><p class="hlc-body">Regular medical camps, blood donation drives, and community meetings to stay directly connected with every voter.</p></div>
+  </div>
+</div>
+
+<!-- PRESS -->
+<section id="press" class="section">
+  <div class="s-eye rv"><span>In the News</span></div>
+  <h2 class="s-title rv">Media <span class="hi">Coverage</span></h2>
+  <div class="s-rule rv"><div class="s-rule-inner"></div><div class="s-rule-inner2"></div><div class="s-rule-inner3"></div></div>
+  <p class="s-sub rv">Coverage of Shri Ashrit Pattanayak's legislative and constituency work across Odisha.</p>
+  <div class="pgrid">
+    <div class="pc feat rv">
+      <div><div class="pc-src">Odisha Political News</div><div class="pc-hl">MLA Ashrit Pattanayak leads development push in Pipili &mdash; roads, schools and health infrastructure fast-tracked for constituency voters</div></div>
+      <div class="pc-dt">Recent</div>
+    </div>
+    <div class="pc rv">
+      <div class="pc-src">Puri District Report</div>
+      <div class="pc-hl">Pipili MLA raises farmers&rsquo; issues in Odisha Assembly &mdash; demands better irrigation and MSP for Puri district</div>
+      <div class="pc-dt">Recent</div>
+    </div>
+    <div class="pc rv d1">
+      <div class="pc-src">Odia Regional Media</div>
+      <div class="pc-hl">Ashrit Pattanayak champions Pipili&rsquo;s appliqu&eacute; artisans &mdash; pushes for GI protection and direct export linkages</div>
+      <div class="pc-dt">Recent</div>
+    </div>
+    <div class="pc rv">
+      <div class="pc-src">Community Voice</div>
+      <div class="pc-hl">MLA conducts jan sunwai in Pipili &mdash; hundreds of constituents present grievances directly</div>
+      <div class="pc-dt">Recent</div>
+    </div>
+    <div class="pc rv d1">
+      <div class="pc-src">Assembly Coverage</div>
+      <div class="pc-hl">Pattanayak speaks on youth unemployment and skill development needs in Odisha Legislative Assembly</div>
+      <div class="pc-dt">Recent</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="s-eye rv"><span>On the Ground</span></div>
+  <h2 class="s-title rv">Photo <span class="hi">Gallery</span></h2>
+  <div class="s-rule rv"><div class="s-rule-inner"></div><div class="s-rule-inner2"></div><div class="s-rule-inner3"></div></div>
+  <p class="s-sub rv">Moments from constituency work, community outreach, and public service across Pipili.</p>
+  <div class="gallery-grid">
+    <div class="gi rv" onclick="openLb(0)"><img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730428/706517107_26790706457279629_719581851944588204_n_wkgxjq.jpg" alt="Gallery 1" loading="lazy"></div>
+    <div class="gi rv d1" onclick="openLb(1)"><img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730427/708312355_26802060776144197_1932721393094496342_n_dtlng4.jpg" alt="Gallery 2" loading="lazy"></div>
+    <div class="gi rv d2" onclick="openLb(2)"><img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730427/690721111_26540453702304907_4248702824174880939_n_usc1lz.jpg" alt="Gallery 3" loading="lazy"></div>
+    <div class="gi rv" onclick="openLb(3)"><img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730427/708443025_26828128113537463_3296724678450744182_n_bxc3t2.jpg" alt="Gallery 4" loading="lazy"></div>
+    <div class="gi rv d1" onclick="openLb(4)"><img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730426/714806072_26954972050853068_8574805774345016037_n_hbrocg.jpg" alt="Gallery 5" loading="lazy"></div>
+    <div class="gi rv d2" onclick="openLb(5)"><img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730426/690737250_26540453125638298_7713114072465162947_n_ag7zr4.jpg" alt="Gallery 6" loading="lazy"></div>
+    <div class="gi rv" onclick="openLb(6)"><img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730425/687990519_26489049834111961_6613753820593483749_n_qpmcxx.jpg" alt="Gallery 7" loading="lazy"></div>
+    <div class="gi rv d1" onclick="openLb(7)"><img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730424/704914444_26784766841206924_3825307657982900755_n_pk2e9t.jpg" alt="Gallery 8" loading="lazy"></div>
+    <div class="gi rv d2" onclick="openLb(8)"><img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730424/703659330_26776168815400060_1470435968820268622_n_mv1pp5.jpg" alt="Gallery 9" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" onclick="closeLbOutside(event)">
+  <button class="lb-close" onclick="closeLb()">&#x2715;</button>
+  <button class="lb-nav lb-prev" onclick="lbMove(-1)">&#x2039;</button>
+  <img class="lb-img" id="lb-img" src="" alt="">
+  <button class="lb-nav lb-next" onclick="lbMove(1)">&#x203A;</button>
+  <div class="lb-counter" id="lb-counter">1 / 9</div>
+</div>
+
+<section id="contact">
+  <div class="ct-l">
+    <div class="ct-l-content">
+      <div class="ct-l-tag">Get in Touch</div>
+      <h2 class="ct-l-title">Reach <em>Shri Ashrit Pattanayak</em></h2>
+      <div class="ci"><div class="ci-ico">&#x1F4CD;</div><div><div class="ci-k">Constituency</div><div class="ci-v">Pipili, Puri District, Odisha</div></div></div>
+      <div class="ci"><div class="ci-ico">&#x1F3DB;&#xFE0F;</div><div><div class="ci-k">Assembly</div><div class="ci-v">Odisha Legislative Assembly, Bhubaneswar</div></div></div>
+      <div class="ci"><div class="ci-ico">&#x1F4F1;</div><div><div class="ci-k">MLA Office</div><div class="ci-v">Pipili Constituency Office, Puri &mdash; Odisha</div></div></div>
+      <div class="ci"><div class="ci-ico">&#x1F4E7;</div><div><div class="ci-k">Party</div><div class="ci-v">Elected Representative &mdash; Pipili Constituency</div></div></div>
+      <div class="ct-social">
+        <a class="csb" href="#">ig</a>
+        <a class="csb" href="#">f</a>
+        <a class="csb" href="#">X</a>
+        <a class="csb" href="#">YT</a>
+      </div>
+    </div>
+  </div>
+  <div class="ct-r">
+    <div class="form-title">Write to <span>Shri Pattanayak</span></div>
+    <p class="form-sub">Share your concern, suggestion, or support. Our office reviews every submission promptly.</p>
+    <div class="fg2">
+      <div class="fg"><label class="fl">Full Name *</label><input type="text" class="fi" placeholder="Your full name"></div>
+      <div class="fg"><label class="fl">Mobile *</label><input type="tel" class="fi" placeholder="+91 XXXXX XXXXX"></div>
+    </div>
+    <div class="fg2">
+      <div class="fg"><label class="fl">Village / Ward</label><input type="text" class="fi" placeholder="Your village or ward"></div>
+      <div class="fg"><label class="fl">Subject *</label>
+        <select class="fse">
+          <option value="">Select a subject</option>
+          <option>Roads &amp; Infrastructure</option>
+          <option>Farmer / Agricultural Issue</option>
+          <option>Education / School</option>
+          <option>Healthcare / Medical</option>
+          <option>Artisan / Craft Support</option>
+          <option>Youth / Employment</option>
+          <option>Government Scheme</option>
+          <option>Other</option>
+        </select>
+      </div>
+    </div>
+    <div class="fg"><label class="fl">Your Message *</label><textarea class="fta" placeholder="Describe your concern or suggestion..."></textarea></div>
+    <button class="fbtn" onclick="handleSubmit(this)">Submit Message &rarr;</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-body">
+    <div>
+      <div class="ft-brand">Ashrit <span>Pattanayak</span></div>
+      <p class="ft-tag">MLA &mdash; Pipili Constituency, Puri District, Odisha. Committed to the development, welfare, and prosperity of every family in Pipili.</p>
+      <div class="ft-flag"><span></span><span></span><span></span></div>
+    </div>
+    <div>
+      <div class="ft-h">Quick Links</div>
+      <ul class="ft-list">
+        <li><a href="#about">About</a></li>
+        <li><a href="#journey">Journey</a></li>
+        <li><a href="#vision">Vision</a></li>
+        <li><a href="#achievements">Work</a></li>
+        <li><a href="#press">Media</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="ft-h">Focus Areas</div>
+      <ul class="ft-list">
+        <li><a href="#">Farmer Welfare</a></li>
+        <li><a href="#">Appliqu&eacute; Artisans</a></li>
+        <li><a href="#">Education</a></li>
+        <li><a href="#">Healthcare</a></li>
+        <li><a href="#">Youth &amp; Employment</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-btm">
+    <span>&copy; 2025 Shri Ashrit Pattanayak &mdash; MLA Pipili Constituency, Puri District, Odisha.</span>
+    <span>Jai Odisha &#x1F1EE;&#x1F1F3; &nbsp;&bull;&nbsp; Jai India &#x1FAB7;</span>
+  </div>
+</footer>
+
+<div class="mob-sticky">
+  <a href="#contact" class="ms-btn ms-call">&#x1F4DE; Call Office</a>
+  <a href="#contact" class="ms-btn ms-write">&#x2709;&#xFE0F; Write</a>
+</div>
+<button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#x2191;</button>
+
+<script>
+var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('vis');io.unobserve(x.target);}});},{threshold:.08});
+document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+window.addEventListener('scroll',function(){
+  var sy=window.scrollY;
+  document.getElementById('btt').classList.toggle('show',sy>500);
+  var cur='';
+  document.querySelectorAll('section[id],div[id]').forEach(function(s){if(sy>=s.offsetTop-120)cur=s.id;});
+  document.querySelectorAll('.nav-links a').forEach(function(a){a.classList.toggle('act',a.getAttribute('href')==='#'+cur);});
+});
+function toggleMenu(){document.getElementById('mobMenu').classList.toggle('open');}
+function closeMenu(){document.getElementById('mobMenu').classList.remove('open');}
+var lbImgs=['https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730428/706517107_26790706457279629_719581851944588204_n_wkgxjq.jpg','https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730427/708312355_26802060776144197_1932721393094496342_n_dtlng4.jpg','https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730427/690721111_26540453702304907_4248702824174880939_n_usc1lz.jpg','https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730427/708443025_26828128113537463_3296724678450744182_n_bxc3t2.jpg','https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730426/714806072_26954972050853068_8574805774345016037_n_hbrocg.jpg','https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730426/690737250_26540453125638298_7713114072465162947_n_ag7zr4.jpg','https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730425/687990519_26489049834111961_6613753820593483749_n_qpmcxx.jpg','https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730424/704914444_26784766841206924_3825307657982900755_n_pk2e9t.jpg','https://res.cloudinary.com/dxmdcoca3/image/upload/v1780730424/703659330_26776168815400060_1470435968820268622_n_mv1pp5.jpg'];
+var lbIdx=0;
+function openLb(i){lbIdx=i;document.getElementById('lb-img').src=lbImgs[lbIdx];document.getElementById('lb-counter').textContent=(lbIdx+1)+' / '+lbImgs.length;document.getElementById('lb').classList.add('open');document.body.style.overflow='hidden';}
+function closeLb(){document.getElementById('lb').classList.remove('open');document.body.style.overflow='';}
+function closeLbOutside(e){if(e.target===document.getElementById('lb'))closeLb();}
+function lbMove(d){lbIdx=(lbIdx+d+lbImgs.length)%lbImgs.length;document.getElementById('lb-img').src=lbImgs[lbIdx];document.getElementById('lb-counter').textContent=(lbIdx+1)+' / '+lbImgs.length;}
+document.addEventListener('keydown',function(e){if(document.getElementById('lb').classList.contains('open')){if(e.key==='Escape')closeLb();if(e.key==='ArrowRight')lbMove(1);if(e.key==='ArrowLeft')lbMove(-1);}});
+function handleSubmit(btn){
+  btn.textContent='Submitted \u2014 Thank You!';
+  btn.style.background='#1A1A1A';
+  setTimeout(function(){btn.textContent='Submit Message \u2192';btn.style.background='';},3500);
+}
+</script>
+</body>
+</html>
