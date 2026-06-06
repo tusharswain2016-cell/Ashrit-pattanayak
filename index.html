@@ -59,23 +59,16 @@ nav{
 .logo{display:flex;align-items:center;gap:.75rem;text-decoration:none;}
 .logo-sq{
   width:40px;height:40px;
-  background:var(--gr);
+  background:transparent;
   display:flex;align-items:center;justify-content:center;
-  font-size:1.1rem;
   position:relative;
   flex-shrink:0;
 }
-.logo-sq::after{
-  content:'';position:absolute;
-  bottom:-3px;right:-3px;
-  width:100%;height:100%;
-  border:2px solid var(--sf);
-  z-index:-1;
-}
+.logo-sq::after{display:none;}
 .logo-t1{font-family:'Tiro Devanagari Hindi',serif;font-size:1rem;color:var(--gr);line-height:1;}
 .logo-t2{font-family:'Space Mono',monospace;font-size:.48rem;letter-spacing:.15em;color:var(--sf);margin-top:.1rem;}
 .nav-links{display:flex;gap:1.8rem;list-style:none;}
-.nav-links a{font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color .2s;}
+.nav-links a{font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color .2s;}
 .nav-links a:hover,.nav-links a.act{color:var(--sf);}
 .nav-cta{
   background:var(--gr);color:#fff;
@@ -686,6 +679,7 @@ footer{background:var(--ink);border-top:4px solid var(--sf);}
 <!-- HEADER BAND -->
 <div class="header-band">
   <div class="hb-left">
+    <img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1780746362/Logo_of_the_Bharatiya_Janata_Party.svg_blj6cw.png" alt="BJP Logo" style="height:36px;width:auto;flex-shrink:0;">
     <div class="tricolor"><span></span><span></span><span></span></div>
     <div>
       <div class="hb-name">Shri Ashrit Pattanayak</div>
@@ -701,7 +695,9 @@ footer{background:var(--ink);border-top:4px solid var(--sf);}
 <!-- NAV -->
 <nav id="nav">
   <a class="logo" href="#">
-    <div class="logo-sq">&#x1FAB7;</div>
+    <div class="logo-sq">
+      <img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1780746362/Logo_of_the_Bharatiya_Janata_Party.svg_blj6cw.png" alt="BJP" style="width:28px;height:28px;object-fit:contain;">
+    </div>
     <div>
       <div class="logo-t1">Ashrit Pattanayak</div>
       <div class="logo-t2">MLA &middot; Pipili</div>
