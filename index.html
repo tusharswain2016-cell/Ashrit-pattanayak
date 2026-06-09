@@ -114,6 +114,8 @@ nav{
   object-position:center top;
   display:block;
   z-index:0;
+  border:none;
+  background:var(--gr);
 }
 
 /* layered gradient overlay: top fade + deep bottom fade for text legibility */
@@ -123,11 +125,11 @@ nav{
   z-index:1;
   background:
     linear-gradient(to bottom,
-      rgba(0,0,0,.45) 0%,
-      rgba(0,0,0,.1) 35%,
-      rgba(0,0,0,.15) 55%,
-      rgba(0,0,0,.75) 78%,
-      rgba(0,0,0,.92) 100%
+      rgba(0,0,0,.55) 0%,
+      rgba(0,0,0,.2) 35%,
+      rgba(0,0,0,.25) 55%,
+      rgba(0,0,0,.85) 78%,
+      rgba(0,0,0,.95) 100%
     );
 }
 
@@ -688,7 +690,10 @@ footer{background:var(--ink);border-top:4px solid var(--sf);}
   </div>
   <div class="hb-right">
     <div class="hb-sub">ODISHA LEGISLATIVE ASSEMBLY</div>
-    <div class="hb-tag">Official Site</div>
+    <div style="display:flex;gap:.5rem;">
+      <button id="langBtnEn" class="hb-tag lang-btn-header lang-active" onclick="changeLanguage('en')">ENGLISH</button>
+      <button id="langBtnOr" class="hb-tag lang-btn-header" onclick="changeLanguage('or')" style="background:#138808;">ଓଡ଼ିଆ</button>
+    </div>
   </div>
 </div>
 
@@ -744,8 +749,9 @@ footer{background:var(--ink);border-top:4px solid var(--sf);}
 <section id="hero">
   <!-- Full-bleed video -->
   <video class="hero-video-bg"
-    src="https://res.cloudinary.com/dxmdcoca3/video/upload/v1780911483/0608_1__2560x1440_xnzz2n.mp4"
-    autoplay muted loop playsinline>
+    src="https://res.cloudinary.com/dxmdcoca3/video/upload/v1780990245/0609_ztchkx.mp4"
+    autoplay muted loop playsinline preload="auto" crossorigin="anonymous">
+    Your browser does not support the video tag.
   </video>
 
   <!-- Gradient overlay for legibility -->
@@ -1112,6 +1118,152 @@ document.addEventListener('keydown', e => {
     if(e.key==='Escape') closeLb();
   }
 });
+
+// Language Switching - WORKING VERSION
+const translations = {
+  'Member of Legislative Assembly — Odisha': { or: 'ବିଧାନ ସଭାର ସଦସ୍ୟ — ଓଡିଶା' },
+  'Ashrit': { or: 'ଅଶ୍ରିତ' },
+  'Pattanayak': { or: 'ପଟ୍ଟନାୟକ' },
+  'A committed people\'s representative and grassroots leader, working tirelessly for the development, welfare, and future of every family across the Pipili constituency in Puri district, Odisha.': { or: 'ଜନଗଣର ଏକ ଉତ୍ସର୍ଗୀକୃତ ପ୍ରତିନିଧି ତଥା ତୃଣମୂଳ ନେତା, ପିପିଲି ନିର୍ବାଚନ ମଣ୍ଡଳୀର ପ୍ରତିଟି ପରିବାରର ଉନ୍ନୟନ, କଲ୍ୟାଣ ତଥା ଭବିଷ୍ୟତ ପାଇଁ ନିରଲସ ଭାବେ କାର୍ୟ କରୁଛନ୍ତି।' },
+  'His Journey →': { or: 'ତାଙ୍କର ଯାତ୍ରା →' },
+  'Get in Touch': { or: 'ଯୋଗାଯୋଗ କରନ୍ତୁ' },
+  'Elected Rep.': { or: 'ନିର୍ବାଚିତ ପ୍ରତିନିଧି' },
+  'Constituency': { or: 'ନିର୍ବାଚନ ମଣ୍ଡଳୀ' },
+  'District': { or: 'ଜିଲ୍ଲା' },
+  'Who He Is': { or: 'ସେ କିଏ' },
+  'Shri Ashrit': { or: 'ଶ୍ରୀ ଅଶ୍ରିତ' },
+  'Position': { or: 'ଆଶନ' },
+  'MLA, Pipili': { or: 'ବିଧାୟକ, ପିପିଲି' },
+  'Puri, Odisha': { or: 'ପୁରୀ, ଓଡିଶା' },
+  'Odisha Legislature': { or: 'ଓଡିଶା ବିଧାୟକ ସଭା' },
+  'Focus': { or: 'ଫୋକାସ' },
+  'Development & Welfare': { or: 'ଉନ୍ନୟନ ଓ ସାଶ୍ରୟ' },
+  'About': { or: 'ବିଷୟରେ' },
+  'Gallery': { or: 'ଗ୍ୟାଲେରୀ' },
+  'Journey': { or: 'ଯାତ୍ରା' },
+  'Vision': { or: 'ଦୃଷ୍ଟିଭଙ୍ଗି' },
+  'Work': { or: 'କାମ' },
+  'Press': { or: 'ପ୍ରେସ' },
+  'Contact': { or: 'ଯୋଗାଯୋଗ' },
+  'Pipili Constituency · Puri District': { or: 'ପିପିଲି ନିର୍ବାଚନ ମଣ୍ଡଳୀ · ପୁରୀ ଜିଲ୍ଲା' },
+  'MLA': { or: 'ବିଧାୟକ' },
+  'Pipili': { or: 'ପିପିଲି' },
+  'Puri': { or: 'ପୁରୀ' },
+  'Moments from': { or: 'ଠାରୁ ମୁହୂର୍ତ୍ତ' },
+  'Career & Service': { or: 'ପେସା ଓ ସେବା' },
+  'The': { or: 'ଦ' },
+  'Vision & Agenda': { or: 'ଦୃଷ୍ଟିଭଙ୍ଗି ଓ ଏଜେଣ୍ଡା' },
+  'Building a': { or: 'ଗଠନ' },
+  'Better Pipili': { or: 'ଉତ୍ତମ ପିପିଲି' },
+  'Track Record': { or: 'ଟ୍ରାକ ରେକର୍ଡ' },
+  'Commitment': { or: 'ପ୍ରତିଶ୍ରୁତି' },
+  'in Action': { or: 'କାର୍ୟରେ' },
+  'In the News': { or: 'ସମ୍ବାଦରେ' },
+  'Media': { or: 'ମାଧ୍ୟମ' },
+  'Coverage': { or: 'ସଂବାଦ' },
+  'Office': { or: 'ଦପ୍ତର' },
+  'MLA Office, Pipili, Puri District, Odisha': { or: 'ବିଧାୟକ ଦପ୍ତର, ପିପିଲି, ପୁରୀ ଜିଲ୍ଲା, ଓଡିଶା' },
+  'Send a': { or: 'ପଠାନ୍ତୁ' },
+  'Message': { or: 'ସନ୍ଦେଶ' },
+  'Full Name': { or: 'ସମ୍ପୂର୍ଣ୍ଣ ନାମ' },
+  'Phone': { or: 'ଫୋନ' },
+  'Village / Area': { or: 'ଗାଁ / ଅଞ୍ଚଳ' },
+  'Subject': { or: 'ବିଷୟ' }
+};
+
+let currentLanguage = 'en';
+const originalHTML = document.body.innerHTML;
+
+function changeLanguage(lang) {
+  currentLanguage = lang;
+  
+  // Update button states
+  document.getElementById('langBtnEn').classList.toggle('lang-active', lang === 'en');
+  document.getElementById('langBtnOr').classList.toggle('lang-active', lang === 'or');
+  
+  if (lang === 'en') {
+    document.body.innerHTML = originalHTML;
+  } else {
+    let html = originalHTML;
+    for (let en in translations) {
+      const or = translations[en].or;
+      const regex = new RegExp(en.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
+      html = html.replace(regex, or);
+    }
+    document.body.innerHTML = html;
+  }
+  
+  // Re-attach event listeners
+  reattachListeners();
+  localStorage.setItem('language', lang);
+}
+
+function reattachListeners() {
+  document.getElementById('btt').onclick = () => window.scrollTo({top:0,behavior:'smooth'});
+  document.getElementById('ham').onclick = toggleMenu;
+  document.querySelectorAll('.gallery-grid .gi').forEach((el, i) => {
+    el.onclick = () => openLb(i);
+  });
+  document.getElementById('lbImg').src = '';
+  const galleryImages = document.querySelectorAll('.gallery-grid img');
+  imgs.splice(0, imgs.length);
+  galleryImages.forEach(img => imgs.push(img.src));
+  
+  // Re-attach language buttons
+  document.getElementById('langBtnEn').onclick = () => changeLanguage('en');
+  document.getElementById('langBtnOr').onclick = () => changeLanguage('or');
+  
+  // Reattach nav listeners
+  navLinks.forEach((link, i) => {
+    link.onclick = (e) => { closeMenu(); };
+  });
+  
+  // Reattach ham menu
+  document.querySelectorAll('.mob-menu a').forEach(a => {
+    a.onclick = closeMenu;
+  });
+  
+  // Reattach close lightbox
+  document.getElementById('lb').onclick = (e) => closeLbOutside(e);
+  document.querySelector('.lb-close').onclick = closeLb;
+  document.querySelector('.lb-prev').onclick = () => lbNav(-1);
+  document.querySelector('.lb-next').onclick = () => lbNav(1);
+  
+  // Scroll event
+  window.removeEventListener('scroll', scrollHandler);
+  window.addEventListener('scroll', scrollHandler);
+  
+  // Intersection observer for reveals
+  document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+}
+
+function scrollHandler() {
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const sections = document.querySelectorAll('section[id], div[id]');
+  let cur = '';
+  sections.forEach(s => { if(window.scrollY >= s.offsetTop - 80) cur = s.id; });
+  navLinks.forEach(a => { a.classList.toggle('act', a.getAttribute('href') === '#'+cur); });
+  document.getElementById('btt').classList.toggle('show', window.scrollY > 300);
+}
+
+// Load saved language
+window.addEventListener('load', () => {
+  const saved = localStorage.getItem('language') || 'or';
+  if (saved === 'or') {
+    changeLanguage('or');
+  } else {
+    changeLanguage('en');
+  }
+  
+  // Fix video playback
+  const video = document.querySelector('.hero-video-bg');
+  if(video) {
+    video.muted = true;
+    video.autoplay = true;
+    video.play().catch(err => console.log('Video play error:', err));
+  }
+});
+
 </script>
 </body>
 </html>
