@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coming Soon - Shri Ashrit Pattanayak</title>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+:root{
+  --sf:#FF6B00;
+  --sf2:#FF9534;
+  --sf3:#FFD07A;
+  --gr:#1A1A1A;
+  --gr2:#252525;
+  --gr3:#333333;
+  --white:#FFFFFF;
+  --off:#F9F7F4;
+  --ink:#0D0D0D;
+  --mid:#555555;
+  --light:#999999;
+}
+body{
+  font-family:'Outfit',sans-serif;
+  background:linear-gradient(135deg, var(--gr) 0%, var(--gr2) 100%);
+  color:var(--white);
+  overflow-x:hidden;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:2rem;
+}
+
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-thumb{background:var(--sf);}
+
+/* Header */
+.header{
+  position:absolute;
+  top:0;left:0;right:0;
+  padding:2rem 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:rgba(0,0,0,0.3);
+  backdrop-filter:blur(10px);
+}
+
+.logo-section{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+}
+
+.logo-icon{
+  width:40px;
+  height:40px;
+  background:var(--sf);
+  border-radius:4px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  color:#fff;
+  font-family:'Tiro Devanagari Hindi',serif;
+}
+
+.logo-text h1{
+  font-family:'Tiro Devanagari Hindi',serif;
+  font-size:1rem;
+  font-weight:600;
+  line-height:1;
+  margin-bottom:.2rem;
+}
+
+.logo-text p{
+  font-family:'Space Mono',monospace;
+  font-size:.5rem;
+  letter-spacing:.15em;
+  color:var(--sf);
+}
+
+.lang-toggle{
+  display:flex;
+  gap:.5rem;
+}
+
+.lang-btn{
+  background:transparent;
+  border:1px solid rgba(255,255,255,.3);
+  color:rgba(255,255,255,.7);
+  font-family:'Space Mono',monospace;
+  font-size:.5rem;
+  letter-spacing:.1em;
+  padding:.4rem .7rem;
+  cursor:pointer;
+  transition:all .2s;
+  font-weight:700;
+}
+
+.lang-btn:hover{
+  border-color:var(--sf);
+  color:var(--sf);
+}
+
+.lang-btn.active{
+  background:var(--sf);
+  border-color:var(--sf);
+  color:#fff;
+}
+
+/* Main Content */
+.container{
+  text-align:center;
+  max-width:600px;
+  margin-top:60px;
+  animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(20px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* Decorative Elements */
+.circles{
+  position:fixed;
+  top:0;left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:0;
+  overflow:hidden;
+}
+
+.circle{
+  position:absolute;
+  border:2px solid rgba(255,107,0,.1);
+  border-radius:50%;
+  opacity:0.3;
+}
+
+.circle1{width:300px;height:300px;top:-100px;right:-100px;animation:float 20s infinite;}
+.circle2{width:200px;height:200px;bottom:10%;left:-50px;animation:float 25s infinite reverse;}
+.circle3{width:150px;height:150px;top:30%;left:10%;animation:float 30s infinite;}
+
+@keyframes float{
+  0%,100%{transform:translate(0,0);}
+  50%{transform:translate(50px,50px);}
+}
+
+/* Content */
+.content{
+  position:relative;
+  z-index:1;
+}
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  background:rgba(255,107,0,.15);
+  border:1px solid rgba(255,107,0,.3);
+  padding:.6rem 1.2rem;
+  border-radius:50px;
+  margin-bottom:2rem;
+}
+
+.eyebrow::before{
+  content:'';
+  width:6px;
+  height:6px;
+  background:var(--sf);
+  border-radius:50%;
+}
+
+.eyebrow span{
+  font-family:'Space Mono',monospace;
+  font-size:.55rem;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:var(--sf);
+}
+
+h1{
+  font-family:'Tiro Devanagari Hindi',serif;
+  font-size:clamp(2.5rem,8vw,4.5rem);
+  font-weight:700;
+  line-height:1.1;
+  margin-bottom:1rem;
+  color:#fff;
+}
+
+.highlight{
+  background:linear-gradient(135deg, var(--sf) 0%, var(--sf2) 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.subtitle{
+  font-size:1.1rem;
+  color:rgba(255,255,255,.7);
+  margin-bottom:3rem;
+  line-height:1.6;
+}
+
+/* Social Links */
+.social{
+  display:flex;
+  justify-content:center;
+  gap:1rem;
+  margin-top:2.5rem;
+}
+
+.social-link{
+  width:44px;
+  height:44px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.15);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+  font-size:.8rem;
+  transition:all .2s;
+}
+
+.social-link:hover{
+  background:var(--sf);
+  border-color:var(--sf);
+  transform:translateY(-3px);
+}
+
+/* Footer Message */
+.footer-msg{
+  margin-top:3rem;
+  padding-top:2rem;
+  border-top:1px solid rgba(255,255,255,.1);
+  font-size:.85rem;
+  color:rgba(255,255,255,.5);
+}
+
+.footer-msg strong{
+  color:var(--sf);
+}
+
+/* Responsive */
+@media(max-width:600px){
+  .header{
+    padding:1.5rem 5%;
+  }
+  
+  .container{
+    margin-top:100px;
+  }
+  
+  h1{
+    font-size:clamp(2rem,6vw,3rem);
+  }
+  
+  .email-form{
+    flex-direction:column;
+  }
+  
+  .email-form button{
+    width:100%;
+  }
+  
+  .logo-text p{
+    display:none;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="circles">
+  <div class="circle circle1"></div>
+  <div class="circle circle2"></div>
+  <div class="circle circle3"></div>
+</div>
+
+<header class="header">
+  <div class="logo-section">
+    <div class="logo-icon">अ</div>
+    <div class="logo-text">
+      <h1>Ashrit</h1>
+      <p>MLA · Pipili</p>
+    </div>
+  </div>
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="changeLanguage('en')">EN</button>
+    <button class="lang-btn" onclick="changeLanguage('or')">ଓଡ଼ିଆ</button>
+  </div>
+</header>
+
+<div class="container">
+  <div class="content">
+    <div class="eyebrow">
+      <span id="coming-soon-label">Something Big is Coming</span>
+    </div>
+    
+    <h1>
+      <span id="main-title">Launching Soon</span><br>
+      <span class="highlight" id="subtitle-highlight">Official Portal</span>
+    </h1>
+    
+    <p class="subtitle" id="subtitle-text">
+      We're building something amazing for you. Get notified when we launch!
+    </p>
+    
+    <!-- Social Links -->
+    <div class="social">
+      <a href="https://facebook.com" class="social-link" target="_blank" title="Facebook">f</a>
+      <a href="https://twitter.com" class="social-link" target="_blank" title="Twitter">X</a>
+      <a href="https://instagram.com" class="social-link" target="_blank" title="Instagram">📷</a>
+    </div>
+    
+    <!-- Footer Message -->
+    <div class="footer-msg">
+      <p id="footer-msg"><strong id="footer-name">Shri Ashrit Pattanayak</strong> | MLA, Pipili Constituency, Puri District, Odisha</p>
+    </div>
+  </div>
+</div>
+
+<script>
+// Language Toggle
+const translations = {
+  'coming-soon-label': {
+    en: 'Something Big is Coming',
+    or: 'କିଛି ବଡ଼ କିଛୁ ଆସୁଛି'
+  },
+  'main-title': {
+    en: 'Launching Soon',
+    or: 'ଶୀଘ୍ରଶୀଘ୍ର ଚାଳୁ ହୋଇଯିବ'
+  },
+  'subtitle-highlight': {
+    en: 'Official Portal',
+    or: 'ସରକାରୀ ପୋର୍ଟାଲ'
+  },
+  'subtitle-text': {
+    en: 'We\'re building something amazing for you. Get notified when we launch!',
+    or: 'ଆମେ ଆପଣ ପାଇଁ କିଛି ଅଦ୍ଭୁତ ନିର୍ମାଣ କରୁଛୁ। ଯେତେବେଳେ ଆମେ ଚାଳୁ ହୋଇ ଯାଇବୁ ସେତେବେଳେ ଜଣାଇବୁ!'
+  },
+  'notify-label': {
+    en: 'Get Notified',
+    or: 'ଅବଗତ ହୋଇଥାଏ'
+  },
+  'subscribe-btn': {
+    en: 'Notify Me',
+    or: 'ମୋତେ ଜଣାନ୍ତୁ'
+  },
+  'privacy-text': {
+    en: 'We\'ll notify you when the site goes live',
+    or: 'ସାଇଟ ଲାଇଭ ହେଲେ ଆମେ ଆପଣକୁ ଜଣାଇବୁ'
+  },
+  'footer-msg': {
+    en: '<strong id="footer-name">Shri Ashrit Pattanayak</strong> | MLA, Pipili Constituency, Puri District, Odisha',
+    or: '<strong>ଶ୍ରୀ ଅଶ୍ରିତ ପଟ୍ଟନାୟକ</strong> | ବିଧାୟକ, ପିପିଲି ନିର୍ବାଚନ ମଣ୍ଡଳୀ, ପୁରୀ ଜିଲ୍ଲା, ଓଡିଶା'
+  }
+};
+
+let currentLang = 'en';
+
+function changeLanguage(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+  
+  Object.keys(translations).forEach(key => {
+    const element = document.getElementById(key);
+    if (element) {
+      element.innerHTML = translations[key][lang];
+    }
+  });
+  
+  localStorage.setItem('language', lang);
+}
+
+// Initialize
+window.addEventListener('load', () => {
+  const savedLang = localStorage.getItem('language') || 'en';
+  if (savedLang === 'or') {
+    changeLanguage('or');
+    document.querySelectorAll('.lang-btn')[1].click();
+  }
+});
+</script>
+
+</body>
+</html>
