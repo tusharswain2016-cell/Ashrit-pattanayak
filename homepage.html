@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,6 +56,7 @@ nav{
   padding:0 5%;height:64px;
   display:flex;align-items:center;justify-content:space-between;
   box-shadow:0 2px 24px var(--bs1);
+  gap:2rem;
 }
 .logo{display:flex;align-items:center;gap:.75rem;text-decoration:none;}
 .logo-sq{
@@ -297,7 +299,97 @@ nav{
 .s-sub.lt{color:rgba(255,255,255,.55);}
 
 /* ══ ABOUT ══ */
-.about-layout{display:grid;grid-template-columns:260px 1fr;gap:3.5rem;align-items:start;}
+.wiki-infobox{
+  background:var(--white);
+  border:2px solid var(--b2);
+  border-radius:8px;
+  overflow:hidden;
+  height:fit-content;
+  position:sticky;
+  top:84px;
+  width:100%;
+  max-width:320px;
+}
+
+.wiki-header{
+  background:linear-gradient(135deg, rgba(255,107,0,.1), rgba(255,107,0,.05));
+  padding:1.5rem;
+  border-bottom:2px solid var(--b2);
+}
+
+.wiki-content{
+  padding:1rem 0;
+}
+
+.wiki-row{
+  display:flex;
+  justify-content:space-between;
+  gap:1rem;
+  padding:.6rem 1.2rem;
+  border-bottom:1px solid var(--b1);
+  font-size:.85rem;
+}
+
+.wiki-row:last-child{
+  border-bottom:none;
+}
+
+.wiki-key{
+  font-family:'Space Mono',monospace;
+  font-size:.55rem;
+  letter-spacing:.1em;
+  color:var(--sf);
+  text-transform:uppercase;
+  font-weight:700;
+  min-width:100px;
+}
+
+.wiki-val{
+  font-weight:600;
+  color:var(--ink);
+  text-align:right;
+}
+
+.about-image-section{
+  position:relative;
+  overflow:hidden;
+  border-radius:12px;
+  box-shadow:0 10px 40px rgba(0,0,0,.15);
+  max-width:100%;
+  height:500px;
+}
+
+.about-feature-image{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+}
+
+.about-image-overlay{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  background:linear-gradient(to top, rgba(0,0,0,.8), transparent);
+  padding:3rem 2rem 1.5rem;
+  color:#fff;
+  font-family:'Tiro Devanagari Hindi',serif;
+  font-size:1.5rem;
+  font-weight:600;
+}
+
+.about-content{
+  margin-top:3rem;
+}
+
+.about-layout{
+  display:grid;
+  grid-template-columns:320px 1fr;
+  gap:3.5rem;
+  align-items:flex-start;
+}
 .apc{
   background:var(--white);
   border:2px solid var(--b2);
@@ -343,12 +435,10 @@ nav{
 .gallery-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  grid-auto-rows:220px;
-  gap:6px;
+  grid-auto-rows:240px;
+  gap:8px;
   margin-top:2.5rem;
 }
-.gi:nth-child(1){grid-column:span 2;grid-row:span 2;}
-.gi:nth-child(5){grid-column:span 2;}
 .gi{
   position:relative;overflow:hidden;
   background:var(--gr);
@@ -415,14 +505,10 @@ nav{
   color:rgba(255,255,255,.5);
 }
 @media(max-width:900px){
-  .gallery-grid{grid-template-columns:repeat(3,1fr);grid-auto-rows:180px;}
-  .gi:nth-child(1){grid-column:span 2;grid-row:span 2;}
-  .gi:nth-child(5){grid-column:span 1;}
+  .gallery-grid{grid-template-columns:repeat(3,1fr);grid-auto-rows:200px;}
 }
 @media(max-width:600px){
-  .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;}
-  .gi:nth-child(1){grid-column:span 2;grid-row:span 1;}
-  .gi:nth-child(5){grid-column:span 2;}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:180px;}
 }
 
 /* ══ JOURNEY ══ */
@@ -638,12 +724,18 @@ footer{background:var(--ink);border-top:4px solid var(--sf);}
 
 /* ══ RESPONSIVE REST ══ */
 @media(max-width:1100px){
-  .about-layout{grid-template-columns:1fr;}
-  .apc{position:static;max-width:280px;}
+  .about-layout{grid-template-columns:1fr;gap:2rem;}
+  .wiki-infobox{max-width:100%;margin-bottom:0;}
+  .about-image-section{height:400px;}
   .big-stats{grid-template-columns:repeat(2,1fr);}
   .pgrid{grid-template-columns:1fr 1fr;}
   .pc.feat{grid-column:auto;}
   .hl-cards{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  .about-layout{gap:1.5rem;}
+  .about-image-section{height:300px;}
+  .about-image-overlay{padding:2rem 1.5rem 1rem;font-size:1.2rem;}
 }
 @media(max-width:900px){
   .vgrid{grid-template-columns:1fr 1fr;}
@@ -678,30 +770,11 @@ footer{background:var(--ink);border-top:4px solid var(--sf);}
 </head>
 <body>
 
-<!-- HEADER BAND -->
-<div class="header-band">
-  <div class="hb-left">
-    <img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1780746362/Logo_of_the_Bharatiya_Janata_Party.svg_blj6cw.png" alt="BJP Logo" style="height:36px;width:auto;flex-shrink:0;">
-    <div class="tricolor"><span></span><span></span><span></span></div>
-    <div>
-      <div class="hb-name">Shri Ashrit Pattanayak</div>
-      <div class="hb-role">MLA &middot; PIPILI CONSTITUENCY &middot; PURI DISTRICT</div>
-    </div>
-  </div>
-  <div class="hb-right">
-    <div class="hb-sub">ODISHA LEGISLATIVE ASSEMBLY</div>
-    <div style="display:flex;gap:.5rem;">
-      <button id="langBtnEn" class="hb-tag lang-btn-header lang-active" onclick="changeLanguage('en')">ENGLISH</button>
-      <button id="langBtnOr" class="hb-tag lang-btn-header" onclick="changeLanguage('or')" style="background:#138808;">ଓଡ଼ିଆ</button>
-    </div>
-  </div>
-</div>
-
 <!-- NAV -->
 <nav id="nav">
   <a class="logo" href="#">
     <div class="logo-sq">
-      <img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1780746362/Logo_of_the_Bharatiya_Janata_Party.svg_blj6cw.png" alt="BJP" style="width:28px;height:28px;object-fit:contain;">
+      <img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1777706234/bjp-kamal-logo_lkqzcp.png" alt="BJP" style="width:32px;height:32px;object-fit:contain;">
     </div>
     <div>
       <div class="logo-t1">Ashrit Pattanayak</div>
@@ -717,7 +790,16 @@ footer{background:var(--ink);border-top:4px solid var(--sf);}
     <li><a href="#press">Press</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Get in Touch</a>
+  <div style="display:flex;align-items:center;gap:1rem;">
+    <div style="display:flex;align-items:center;gap:.6rem;">
+      <img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1777715526/Untitled_design_14_k3qqit.png" alt="Profile 1" style="height:38px;width:38px;border-radius:50%;object-fit:cover;border:2px solid var(--sf);">
+      <img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1777705113/cm-100_e76srf.png" alt="Profile 2" style="height:38px;width:38px;border-radius:50%;object-fit:cover;border:2px solid var(--sf);">
+    </div>
+    <div style="display:flex;gap:.4rem;border-left:1px solid var(--b1);padding-left:1rem;">
+      <button id="langBtnEn" class="lang-btn-nav lang-active" onclick="changeLanguage('en')" style="background:transparent;border:1px solid var(--sf);color:var(--sf);font-family:'Space Mono',monospace;font-size:.5rem;letter-spacing:.1em;padding:.4rem .6rem;cursor:pointer;transition:all .2s;font-weight:700;border-radius:3px;">EN</button>
+      <button id="langBtnOr" class="lang-btn-nav" onclick="changeLanguage('or')" style="background:transparent;border:1px solid var(--b1);color:var(--mid);font-family:'Space Mono',monospace;font-size:.5rem;letter-spacing:.1em;padding:.4rem .6rem;cursor:pointer;transition:all .2s;font-weight:700;border-radius:3px;">ଓଡ଼ିଆ</button>
+    </div>
+  </div>
   <div class="ham" id="ham" onclick="toggleMenu()"><span></span><span></span><span></span></div>
 </nav>
 <div class="mob-menu" id="mobMenu">
@@ -804,35 +886,55 @@ footer{background:var(--ink);border-top:4px solid var(--sf);}
   <h2 class="s-title rv">Shri Ashrit <span class="hi">Pattanayak</span></h2>
   <div class="s-rule rv"><div class="s-rule-inner"></div><div class="s-rule-inner2"></div><div class="s-rule-inner3"></div></div>
   <div class="about-layout">
-    <div class="apc rv">
-      <div class="apc-photo">
-        <img src="https://scontent.cdninstagram.com/v/t51.2885-19/64450100_2391986454379783_2895403158366846976_n.jpg?_nc_cat=110&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy43MjAuQzMifQ%3D%3D&_nc_ohc=TkvoUXkZn5QQ7kNvwGEckav&_nc_oc=AdoLbkBVM6UK9TTJC34l5M6Go69pz9W_bU6H-zY2HfMikuJcVxZ9Y6DmGjCY3Iij-CqnTS0TH0eXj1erAK3Q8Ejb&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_ss=7b6a8&oh=00_Af_irRataOuZ8ZxqvURCqFJG1cbbH9eRcOWy18k1QMOhZA&oe=6A2885D2" alt="Shri Ashrit Pattanayak">
-        <div class="apc-photo-overlay"></div>
-        <div class="apc-photo-badge">Ashrit Pattanayak</div>
+    <div class="wiki-infobox">
+      <div class="wiki-header">
+        <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:1rem;">
+          <img src="https://res.cloudinary.com/dxmdcoca3/image/upload/v1777706234/bjp-kamal-logo_lkqzcp.png" alt="BJP" style="height:32px;width:auto;">
+          <span style="font-size:.8rem;color:var(--sf);font-weight:700;">MEMBER OF ODISHA LEGISLATIVE ASSEMBLY</span>
+        </div>
+        <h3 style="font-family:'Tiro Devanagari Hindi',serif;font-size:1.3rem;color:var(--ink);margin-bottom:.5rem;">Ashrit Pattanayak</h3>
       </div>
-      <div class="apc-rows">
-        <div class="apc-row"><span class="ak">Position</span><span class="av">MLA, Pipili</span></div>
-        <div class="apc-row"><span class="ak">Constituency</span><span class="av">Pipili</span></div>
-        <div class="apc-row"><span class="ak">District</span><span class="av">Puri, Odisha</span></div>
-        <div class="apc-row"><span class="ak">Assembly</span><span class="av">Odisha Legislature</span></div>
-        <div class="apc-row"><span class="ak">Focus</span><span class="av">Development &amp; Welfare</span></div>
+      <div class="wiki-content">
+        <div class="wiki-row">
+          <span class="wiki-key">Assumed Office</span>
+          <span class="wiki-val">4 June 2024</span>
+        </div>
+        <div class="wiki-row">
+          <span class="wiki-key">Preceded by</span>
+          <span class="wiki-val">Rudra Pratap Maharathy</span>
+        </div>
+        <div class="wiki-row">
+          <span class="wiki-key">Constituency</span>
+          <span class="wiki-val">Pipili</span>
+        </div>
+        <div class="wiki-row">
+          <span class="wiki-key">District</span>
+          <span class="wiki-val">Puri, Odisha</span>
+        </div>
+        <div class="wiki-row">
+          <span class="wiki-key">Party</span>
+          <span class="wiki-val">Bharatiya Janata Party</span>
+        </div>
+        <div class="wiki-row">
+          <span class="wiki-key">Profession</span>
+          <span class="wiki-val">Politician</span>
+        </div>
       </div>
     </div>
-    <div class="about-right">
-      <p class="about-quote rv">"My purpose is to serve every family in Pipili — their prosperity and welfare is my only mission."</p>
-      <p class="about-body rv">Shri Ashrit Pattanayak is the elected Member of Legislative Assembly from the Pipili constituency in Puri district, Odisha. A dedicated public servant, he has committed himself to holistic development — focusing on infrastructure, education, healthcare, and farmer welfare across every corner of the constituency.</p>
-      <p class="about-body rv">Pipili, renowned across the world for its vibrant traditional appliqu&eacute; craft, is a constituency with deep cultural roots and immense untapped potential. Shri Pattanayak has worked to bridge the gap between tradition and modern development, ensuring artisans, farmers, and youth of Pipili have access to new opportunities and government welfare schemes.</p>
-      <p class="about-body rv">With a strong grassroots connect and an unwavering vision for an inclusive, prosperous Pipili, he continues to be the voice of the people in the Odisha Legislative Assembly — raising issues that matter and delivering on the ground.</p>
-      <div class="afacts rv">
-        <div class="af"><div class="af-k">Position</div><div class="af-v">MLA &mdash; Pipili</div></div>
-        <div class="af"><div class="af-k">District</div><div class="af-v">Puri, Odisha</div></div>
-        <div class="af"><div class="af-k">Assembly</div><div class="af-v">Odisha Legislature</div></div>
-        <div class="af"><div class="af-k">Constituency</div><div class="af-v">Pipili</div></div>
-        <div class="af"><div class="af-k">Known For</div><div class="af-v">Grassroots Development</div></div>
-        <div class="af"><div class="af-k">Focus</div><div class="af-v">Farmers, Artisans, Youth</div></div>
+    
+    <div class="about-image-section rv">
+      <img src="https://pbs.twimg.com/media/G1cL5bJWQAAGxMF.jpg" alt="Shri Ashrit Pattanayak" class="about-feature-image">
+      <div class="about-image-overlay">
+        <span>ଶ୍ରୀ ଅଶ୍ରିତ ପଟ୍ଟନାୟକ</span>
       </div>
     </div>
   </div>
+  
+  <div class="about-content rv">
+    <p class="about-quote">"My purpose is to serve every family in Pipili — their prosperity and welfare is my only mission."</p>
+    <p class="about-body">Shri Ashrit Pattanayak is the elected Member of Legislative Assembly from the Pipili constituency in Puri district, Odisha. A dedicated public servant, he has committed himself to holistic development — focusing on infrastructure, education, healthcare, and farmer welfare across every corner of the constituency.</p>
+    <p class="about-body">Pipili, renowned across the world for its vibrant traditional appliqué craft, is a constituency with deep cultural roots and immense untapped potential. Shri Pattanayak has worked to bridge the gap between tradition and modern development, ensuring artisans, farmers, and youth of Pipili have access to new opportunities and government welfare schemes.</p>
+    <p class="about-body">With a strong grassroots connect and an unwavering vision for an inclusive, prosperous Pipili, he continues to be the voice of the people in the Odisha Legislative Assembly — raising issues that matter and delivering on the ground.</p>
 </section>
 
 <!-- GALLERY -->
@@ -1122,6 +1224,7 @@ document.addEventListener('keydown', e => {
 // Language Switching - COMPLETE TRANSLATIONS
 const translations = {
   'Member of Legislative Assembly — Odisha': { or: 'ବିଧାନ ସଭାର ସଦସ୍ୟ — ଓଡିଶା' },
+  'Shri': { or: 'ଶ୍ରୀ' },
   'Ashrit': { or: 'ଅଶ୍ରିତ' },
   'Pattanayak': { or: 'ପଟ୍ଟନାୟକ' },
   'A committed people\'s representative and grassroots leader, working tirelessly for the development, welfare, and future of every family across the Pipili constituency in Puri district, Odisha.': { or: 'ଜନଗଣର ଏକ ଉତ୍ସର୍ଗୀକୃତ ପ୍ରତିନିଧି ତଥା ତୃଣମୂଳ ନେତା, ପିପିଲି ନିର୍ବାଚନ ମଣ୍ଡଳୀର ପ୍ରତିଟି ପରିବାରର ଉନ୍ନୟନ, କଲ୍ୟାଣ ତଥା ଭବିଷ୍ୟତ ପାଇଁ ନିରଲସ ଭାବେ କାର୍ୟ କରୁଛନ୍ତି।' },
@@ -1140,8 +1243,20 @@ const translations = {
   'Development & Welfare': { or: 'ଉନ୍ନୟନ ଓ ସାଶ୍ରୟ' },
   'Pipili Constituency · Puri District': { or: 'ପିପିଲି ନିର୍ବାଚନ ମଣ୍ଡଳୀ · ପୁରୀ ଜିଲ୍ଲା' },
   'MLA': { or: 'ବିଧାୟକ' },
+  'MEMBER OF ODISHA LEGISLATIVE ASSEMBLY': { or: 'ଓଡିଶା ବିଧାୟକ ସଭାର ସଦସ୍ୟ' },
+  'Assumed Office': { or: 'କାର୍ଯ୍ୟଭାର ଗ୍ରହଣ' },
+  'Preceded by': { or: 'ତାଙ୍କ ପୂର୍ବେ' },
+  'Constituency': { or: 'ନିର୍ବାଚନ ମଣ୍ଡଳୀ' },
+  'District': { or: 'ଜିଲ୍ଲା' },
+  'Party': { or: 'ରାଜନୈତିକ ଦଳ' },
+  'Profession': { or: 'ବୃତ୍ତି' },
+  'Assumed Office': { or: 'ଅଫିସ ଗ୍ରହଣ' },
+  '4 June 2024': { or: '୪ ଜୁନ ୨୦୨୪' },
+  'Rudra Pratap Maharathy': { or: 'ରୁଦ୍ର ପ୍ରତାପ ମହାରଥୀ' },
   'Pipili': { or: 'ପିପିଲି' },
-  'Puri': { or: 'ପୁରୀ' },
+  'Puri, Odisha': { or: 'ପୁରୀ, ଓଡିଶା' },
+  'Bharatiya Janata Party': { or: 'ଭାରତୀୟ ଜନତା ପାର୍ଟି' },
+  'Politician': { or: 'ରାଜନେତା' },
   'About': { or: 'ବିଷୟରେ' },
   'Gallery': { or: 'ଗ୍ୟାଲେରୀ' },
   'Journey': { or: 'ଯାତ୍ରା' },
@@ -1172,7 +1287,27 @@ const translations = {
   'Building a': { or: 'ଗଠନ' },
   'Better': { or: 'ଉତ୍ତମ' },
   'Six development pillars guiding every initiative for the people of': { or: 'ପିପିଲି ନିର୍ବାଚନ ମଣ୍ଡଳୀର ଜନଗଣ ପାଇଁ ଛଅଟି ଉନ୍ନୟନ ସ୍ତମ୍ଭ' },
-  'Farmer Welfare': { or: 'ଚାଷୀ ସାଶ୍ରୟ' },
+  'Artisan & Craft Support': { or: 'ଶିଳ୍ପୀ ଓ ଶିଳ୍ପ ସହାୟତା' },
+  'Artisan &amp; Craft Support': { or: 'ଶିଳ୍ପୀ ଓ ଶିଳ୍ପ ସହାୟତା' },
+  'Roads & Infrastructure': { or: 'ରାସ୍ତା ଓ ଅବସଂରଚନା' },
+  'Roads &amp; Infrastructure': { or: 'ରାସ୍ତା ଓ ଅବସଂରଚନା' },
+  'Vision & Agenda': { or: 'ଦୃଷ୍ଟିଭଙ୍ଗି ଓ ଏଜେଣ୍ଡା' },
+  'Vision &amp; Agenda': { or: 'ଦୃଷ୍ଟିଭଙ୍ଗି ଓ ଏଜେଣ୍ଡା' },
+  'has access to quality education and scholarship support.': { or: 'ଗୁଣବତ୍ତାମୟ ଶିକ୍ଷା ଏବଂ ବୃତ୍ତି ସହାୟତା ଲାଭ କରିବା।' },
+  'Pipili constituency.': { or: 'ପିପିଲି ନିର୍ବାଚନ ମଣ୍ଡଳୀ।' },
+  'Vision & Agenda': { or: 'ଦୃଷ୍ଟିଭଙ୍ଗି ଓ ଏଜେଣ୍ଡା' },
+  'Building a': { or: 'ଗଠନ' },
+  'Better Pipili': { or: 'ଉତ୍ତମ ପିପିଲି' },
+  'Six development pillars guiding every initiative for the people of Pipili constituency.': { or: 'ପିପିଲି ନିର୍ବାଚନ ମଣ୍ଡଳୀର ଜନଗଣ ପାଇଁ ଛଅଟି ଉନ୍ନୟନ ସ୍ତମ୍ଭ।' },
+  'Pipili's world-renowned appliqué heritage while creating new markets, exports, and income security for artisans.': { or: 'ପିପିଲିର ବିଶ୍ବ-ଖ୍ୟାତ ଅ୍যାପ୍ଲିକ୍ୟୁ ଐତିହ୍ୟ ସଂରକ୍ଷଣ କରିବା ଏବଂ ଶିଳ୍ପୀଙ୍କ ପାଇଁ ନୂଆ ବଜାର, ରପ୍ତାନି ଏବଂ ଆୟ ସୁରକ୍ଷା ସୃଷ୍ଟି କରିବା।' },
+  'Education for All': { or: 'ସମସ୍ତ ପାଇଁ ଶିକ୍ଷା' },
+  'Healthcare Access': { or: 'ସ୍ୱାସ୍ଥ୍ୟସେବା ପ୍ରବେଶ' },
+  'Youth Empowerment': { or: 'ଯୁବକ ସୁଦୃଢ଼ୀକରଣ' },
+  'Ensuring fair prices, irrigation access, and full government scheme benefits for every farming family across': { or: 'ସମସ୍ତ ଚାଷୀ ପରିବାର ପାଇଁ ନ୍ୟାୟସଙ୍ଗତ ମୂଲ୍ୟ, ଜଳ ସେଚନ ପ୍ରବେଶ ଏବଂ ସମ୍ପୂର୍ଣ୍ଣ ସରକାରୀ ଯୋଜନା ଲାଭ ନିଶ୍ଚିତ କରିବା' },
+  'Improving school infrastructure and ensuring every child in': { or: 'ବିଦ୍ୟାଳୟ ଅବସଂରଚନା ଉନ୍ନତ କରିବା ଏବଂ ପ୍ରତିଟି ଶିଶୁ' },
+  'Strengthening primary health centres, regular medical camps, and accessible affordable healthcare for every family.': { or: 'ପ୍ରାଥମିକ ସ୍ୱାସ୍ଥ୍ୟ କେନ୍ଦ୍ରଗୁଡିକୁ ଶକ୍ତିଶାଳୀ କରିବା, ନିୟମିତ ଚିକିତ୍ସା ଶିବିର ଏବଂ ସମସ୍ତ ପରିବାର ପାଇଁ ସୁଲଭ ସଶସ୍ତ ସ୍ୱାସ୍ଥ୍ୟସେବା।' },
+  'Connecting every village with all-weather roads, electricity, clean water supply, and modern civic amenities.': { or: 'ପ୍ରତିଟି ଗାଁକୁ ସମସ୍ତ ଋତୁର ରାସ୍ତା, ବିଦ୍ୟୁତ, ଶୁଦ୍ଧ ଜଳ ସରବରାହ ଏବଂ ଆଧୁନିକ ନାଗରିକ ସୁବିଧା ସହ ସଂଯୋଗ କରିବା।' },
+  'Skill development, employment, and entrepreneurship opportunities for the energetic youth of': { or: 'ଶକ୍ତିଶାଳୀ ଯୁବକଙ୍କ ପାଇଁ ଦକ୍ଷତା ବିକାଶ, ନିଯୋଗ ଏବଂ ଉଦ୍ୟୋକ୍ତାତ୍ୱ ସୁଯୋଗ' },
   'Ensuring fair prices, irrigation access, and full government scheme benefits for every farming family across': { or: 'ସମସ୍ତ ଚାଷୀ ପରିବାର ପାଇଁ ନ୍ୟାୟସଙ୍ଗତ ମୂଲ୍ୟ, ଜଳ ସେଚନ ପ୍ରବେଶ ଏବଂ ସମ୍ପୂର୍ଣ୍ଣ ସରକାରୀ ଯୋଜନା ଲାଭ ନିଶ୍ଚିତ କରିବା' },
   'Artisan & Craft Support': { or: 'ଶିଳ୍ପୀ ଓ ଶିଳ୍ପ ସହାୟତା' },
   'Preserving': { or: 'ସଂରକ୍ଷଣ' },
@@ -1282,6 +1417,20 @@ function reattachListeners() {
   // Re-attach language buttons
   document.getElementById('langBtnEn').onclick = () => changeLanguage('en');
   document.getElementById('langBtnOr').onclick = () => changeLanguage('or');
+  
+  // Update language button styles
+  const savedLang = localStorage.getItem('language') || 'or';
+  document.querySelectorAll('.lang-btn-nav').forEach(btn => {
+    if ((savedLang === 'en' && btn.id === 'langBtnEn') || (savedLang === 'or' && btn.id === 'langBtnOr')) {
+      btn.style.borderColor = 'var(--sf)';
+      btn.style.color = 'var(--sf)';
+      btn.classList.add('lang-active');
+    } else {
+      btn.style.borderColor = 'var(--b1)';
+      btn.style.color = 'var(--mid)';
+      btn.classList.remove('lang-active');
+    }
+  });
   
   // Reattach nav listeners
   navLinks.forEach((link, i) => {
